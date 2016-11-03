@@ -15,8 +15,8 @@ h1{
 
   font-family:'Helvetica','Impact',sans-serif;
   font-size:6em;
-  font-weight: bold;
-  line-height: 30px;
+  font-weight: 900;
+  line-height: 40px;
   display: block;
   position: relative;
   text-align:center;
@@ -80,5 +80,5 @@ p{
 .article{
   width: 960px;
   padding-left: 200px;
-
+  padding-bottom: 50px;
 }
