@@ -15,6 +15,7 @@ h1{
 
   font-family:'Helvetica','Impact',sans-serif;
   font-size:6em;
+  font-weight: bold;
   line-height: 30px;
   display: block;
   position: relative;
@@ -23,6 +24,16 @@ h1{
   padding-left: 200px;
 
 }
+
+h2{
+  font-family:'Helvetica', sans-serif;
+  font-size: 32px;
+  line-height: 42px;
+  text-align: center;
+  display: block;
+
+}
+
 h3{
   font-family:'Hevletica',sans-serif;
   font-size:1em;
@@ -40,9 +51,34 @@ img{
   width:960px;
 }
 
+a{
+  text-decoration: none;
+  font-weight: 800;
+}
+
+p{
+  text-align:center;
+  font-size: 1.25em;
+}
+
 .new{
   border-radius:5px;
   padding:3px;
   background-color:#bb3825;
   color:white;
+}
+
+.author{
+  font-family: 'Helvetica',sans-serif;
+  font-weight:lighter;;
+  display:block;
+  font-size:18px;
+  line-height: 12px;
+
+}
+
+.article{
+  width: 960px;
+  padding-left: 200px;
+
 }
