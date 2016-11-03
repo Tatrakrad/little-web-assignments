@@ -46,9 +46,10 @@ h3{
 
 img{
   display:block;
-  clear:both;
-  padding-left:200px;
-  width:960px;
+  height:50%
+  width:50%;
+  margin:auto;
+
 }
 
 a{
@@ -78,7 +79,6 @@ p{
 }
 
 .article{
-  width: 960px;
-  padding-left: 200px;
-  padding-bottom: 50px;
+  margin:auto;
+  padding: 20px 200px 20px 200px;
 }
