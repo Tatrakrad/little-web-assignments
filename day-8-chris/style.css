@@ -1,0 +1,132 @@
+header{
+  background-color: rgba(32, 37, 43, 1.0);
+  text-align: center;
+  overflow: auto;
+  padding-bottom: 2%;
+  clear:both;
+}
+
+header ul{
+  overflow: auto;
+  width:10%;
+}
+
+ul.left-nav{
+  float:left;
+  position: relative;
+  left:30%;
+
+}
+ul.right-nav{
+  float:right;
+  position: relative;
+  right:30%
+}
+
+header li{
+  background-color:inherit;
+  color:white;
+  border: 2px solid white;
+  width:35%;
+  padding:6%;
+  margin:20% 0 0 0;
+}
+
+.left-nav li{
+  text-align:right;
+  float:left;
+}
+.right-nav li{
+
+  text-align:left;
+  float:right;
+
+}
+
+header img{
+  display: inline;
+  /*position: relative;*/
+  width:80px;
+  height:80px;
+  padding: 10px; 0 0 0;
+  clear:none;
+}
+
+
+/*
+main 1*/
+section{
+  font-family: sans-serif;
+  text-align: center;
+  outline: 2px solid black;
+  clear:both;
+  width:90%;
+  margin:5% 5%;
+}
+
+em{
+  font-weight:900;
+}
+
+h1{
+  font-size:3em;
+  font-weight: bolder;
+}
+h2{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+
+/*section.title-section{
+
+}*/
+
+div.site-title{
+  text-align: center;
+  background-color: ivory;
+  margin:auto auto;
+  margin:5% 30%;
+  line-height: 1.25;
+}
+
+/*
+Sections two and three*/
+div.main-sections{
+
+}
+
+div.main-sections section{
+  /*outline: 2px solid green;*/
+  clear:both;
+  overflow: auto;
+}
+
+.pic-box-container img{
+  max-width:100%;
+}
+
+.pic-box-container{
+  background-color: orange;
+  float:left;
+  width:50%;
+}
+
+.text-box-container{
+  background-color: blue;
+  width:50%;
+  float:left;
+  margin:10% 0 0 0;
+
+}
+/*
+Quote Section*/
+div.quotesec{
+  background-color:lightgray;
+
+
+}
+.quoteleft, .quoteright{
+
+
+}
