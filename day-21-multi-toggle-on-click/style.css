@@ -54,21 +54,21 @@ table {
 #main{
   max-width: 1080px;
   margin: 0 auto;
+  overflow: auto;
 
 }
 .people{
   font-family: monospace;
-}
-.people ul{
   max-width: 80%;
   margin:0 auto;
   overflow: auto;
 }
-.people li{
+/*border will not be overriden if class selected*/
+li{
   float:left;
   margin: 1%;
   padding:6% 0;
-  border: 3px solid green;
+  border: 3px solid black;
   border-radius: 50%;
   width: 14%;
   text-align: center;
@@ -78,4 +78,5 @@ table {
 .selected{
   color:white;
   background-color: darkgreen;
+  border:3px solid green;
 }
