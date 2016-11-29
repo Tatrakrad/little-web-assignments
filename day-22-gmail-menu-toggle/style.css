@@ -60,14 +60,14 @@ body{
 h1{
 	font-size: 1.66em;
 	padding:0.25em;
-	color:orange;
+	color:darkorange;
 }
 h2{
 	font-size:1.3em;
 }
 
 button{
-	background-color: orange;
+	background-color: darkorange;
 	color:white;
 	border:none;
 	padding:1em;
@@ -98,7 +98,7 @@ button:hover{
 
 .button-holder{
 	text-align: center;
-	margin-top:1em;
+	margin:1em auto;
 
 }
 
@@ -108,18 +108,22 @@ button:hover{
 	border-bottom: 2px solid #bbb;
 	padding:1em;
 	color:red;
-	width:100%;
+	width:auto;
+	/*at 100%... borders extend beyond parent*/
 }
 
 .categories{
-	padding:1em;
 	margin:0 auto;
-	width:80%;
+	width:auto;
 }
 
 .categories li{
 	line-height: 1.5;
 	font-size: .9em;
+	padding-left: 1em;
+}
+.categories ul{
+	margin:1em auto;
 }
 
 .categories li:hover{
@@ -128,4 +132,15 @@ button:hover{
 
 .selected{
 	font-weight: bolder;
+	color:darkorange;
+	border-left: 4px solid red;
+	padding-left: 0;
+}
+
+
+h2 img{
+	display: inline;
+	position: relative;
+	left: 12px;
+	width:6%;
 }
