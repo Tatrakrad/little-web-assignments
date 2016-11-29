@@ -50,3 +50,82 @@ table {
 <!-- ***************************************************************** -->
 <!-- *************** End Reset *********************** -->
 <!-- ***************************************************************** -->*/
+
+body{
+
+	font-family: 'Helvetica','Tahoma','Arial',sans-serif;
+
+}
+
+h1{
+	font-size: 1.66em;
+	padding:0.25em;
+	color:orange;
+}
+h2{
+	font-size:1.3em;
+}
+
+button{
+	background-color: orange;
+	color:white;
+	border:none;
+	padding:1em;
+	width:50%;
+	opacity: .8;
+}
+button:hover{
+	opacity: 1;
+}
+
+#main{
+	max-width: 1920px;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+.left-box{
+	float:left;
+	background:#fafafa;
+	width:14%;
+	margin:1%;
+	border-radius: 2%;
+	position: absolute;
+	top:20%;
+	text-align: left;
+	overflow: auto;
+}
+
+.button-holder{
+	text-align: center;
+	margin-top:1em;
+
+}
+
+.mailbox{
+	background: #ffffff;
+	border-top: 2px solid #bbb;
+	border-bottom: 2px solid #bbb;
+	padding:1em;
+	color:red;
+	width:100%;
+}
+
+.categories{
+	padding:1em;
+	margin:0 auto;
+	width:80%;
+}
+
+.categories li{
+	line-height: 1.5;
+	font-size: .9em;
+}
+
+.categories li:hover{
+	background-color:#bbb;
+}
+
+.selected{
+	font-weight: bolder;
+}
