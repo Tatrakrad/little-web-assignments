@@ -116,6 +116,10 @@ button:hover{
 	margin:0 auto;
 	width:auto;
 }
+/*selected wont override categories li :( */
+li{
+	border-left:4px solid #fafafa;
+}
 
 .categories li{
 	line-height: 1.5;
@@ -134,7 +138,7 @@ button:hover{
 	font-weight: bolder;
 	color:darkorange;
 	border-left: 4px solid red;
-	padding-left: 0;
+
 }
 
 
