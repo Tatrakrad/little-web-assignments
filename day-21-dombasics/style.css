@@ -1,0 +1,153 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/**/
+/*  END OF RESET */
+/**/
+
+body{
+  font-family: 'Helvetica', sans-serif;
+}
+
+h1{
+  font-size: 3em;
+  line-height: 1.5;
+}
+h2{
+  font-size: 2.75em;
+}
+h3{
+  font-size: 2.5em;
+}
+section{
+  padding:2em;
+}
+
+ul, li{
+  margin:1em;
+}
+p{
+  margin:1em auto;
+}
+
+button{
+	font-family: monospace;
+	line-height: 1.2;
+	letter-spacing: 5px;
+	padding:3em;
+	text-align:center;
+
+}
+
+#header{
+  font-size: 3em;
+  padding:1em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#central{
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+#strange-list, #second-list{
+  padding: 2em;
+  background: red;
+  font-family: monospace;
+  font-size: 18px;
+}
+
+#add-event{
+	margin:0 auto;
+	max-width: 80%;
+	text-align: center;
+}
+
+#carousel-section{
+	margin: 0 auto;
+	max-width: 80%;
+	background-color: gray;
+	overflow: hidden;
+}
+button#right-button, button#left-button{
+	padding:0.5em;
+	margin:2.2em 0;
+	text-align: inherit;
+}
+#left-button{
+	float:left;
+}
+#right-button{
+	float:right;
+}
+ .alone-box{
+	background-color: blue;
+	width:50px;
+	height:50px;
+	position: relative;
+}
+.box-two{
+	background-color: red;
+	width:50px;
+	height:50px;
+	position: relative;
+}
+.box-three{
+	background-color: green;
+	width:50px;
+	height:50px;
+	position: relative;
+}
+.box-four{
+	background-color: orange;
+	width:50px;
+	height:50px;
+	position: relative;
+}
