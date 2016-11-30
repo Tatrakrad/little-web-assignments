@@ -73,9 +73,23 @@ body{
 }
 
 .image-footer{
+	line-height: 32px;
+	vertical-align: center;
  overflow: auto;
- height: auto;
  border-bottom: 1px solid gray;
+ width:98%;
+ font-size: .75em;
+}
+
+.image-footer a{
+	text-decoration: none;
+	color:black;
+	font-weight: bolder;
+}
+
+.image-footer span{
+	font-weight: bold;
+	color: gray;
 }
 
 .image-number{
@@ -90,6 +104,8 @@ body{
 .authors{
 	float:right;
 	overflow: auto;
+	padding-left: 12px;
+	position: relative;
 }
 .authors li{
 	float:right;
