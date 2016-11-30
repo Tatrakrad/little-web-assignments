@@ -81,7 +81,7 @@ body{
 <<<<<<< HEAD
  font-size: .75em;
 =======
- 
+
 >>>>>>> 07a38883fce87fc3bd28c0abc6565a2d66996883
 }
 
@@ -104,6 +104,7 @@ body{
 .image-caption{
 	display: inline-block;
 	float:right;
+	text-align: right;
 }
 .authors{
 	float:right;
