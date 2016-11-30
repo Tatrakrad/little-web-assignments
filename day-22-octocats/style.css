@@ -46,3 +46,55 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/*							*/
+/*	Reset End		*/
+/*							*/
+
+body{
+	font-family: 'Helvetica',sans-serif;
+}
+
+.octodex{
+	max-width: 960px;
+	overflow: auto;
+	margin: 0 auto;
+}
+.octocat{
+	width:30%;
+	margin: 24px 1.667%;
+	float:left;
+	overflow: auto;
+}
+.octocat img{
+	max-width: 98%;
+	max-height: 98%;
+	border:1px solid gray;
+}
+
+.image-footer{
+ overflow: auto;
+ height: auto;
+ border-bottom: 1px solid gray;
+}
+
+.image-number{
+	float:left;
+	color:#b0b0b0;
+}
+
+.image-caption{
+	display: inline-block;
+	float:right;
+}
+.authors{
+	float:right;
+	overflow: auto;
+}
+.authors li{
+	float:right;
+}
+.authors img{
+	width:24px;
+	height:24px;
+}
