@@ -65,6 +65,9 @@ body{
 	margin: 24px 1.667%;
 	float:left;
 	overflow: auto;
+	background-image: url(arrow-216-16.png);
+	background-repeat: no-repeat;
+	background-position: 96% 86%;
 }
 .octocat img{
 	max-width: 98%;
@@ -80,6 +83,7 @@ body{
 	border-bottom: 1px solid gray;
 	width:98%;
 	font-size: .75em;
+  margin-top: 16px;
 
 }
 
@@ -116,4 +120,14 @@ body{
 .authors img{
 	width:24px;
 	height:24px;
+}
+
+@media screen and (max-width:720px){
+	.octocat{
+		float: none;
+		clear: both;
+		background-image: none;
+		width:80%;
+		margin: 0 auto;
+	}
 }
