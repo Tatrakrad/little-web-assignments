@@ -14,13 +14,14 @@ var people = ['Miguel','Chelsey','David','Chad','Taylor','Kyle','Kianna'];
 
 function shuffleGroup(peopleArr,num){
   console.log("Our people are ",peopleArr);
+  var savedPeople = peopleArr;
   var tempPeople = [];
   var groups = {};
   var randomPeople = [];
 
   for(var i=0; i<num; i++){
 
-   tempPeople = peopleArr;
+   tempPeople = savedPeople;
 
     while(tempPeople.length > 0){
 
@@ -32,7 +33,8 @@ function shuffleGroup(peopleArr,num){
 
     }
     groups[i] = randomPeople;
-    Math.random();
+    randomPeople = [];
+
   }
 
   return groups;
