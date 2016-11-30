@@ -72,17 +72,15 @@ body{
 	border:1px solid gray;
 }
 
+
 .image-footer{
 	line-height: 32px;
-	vertical-align: center;
- overflow: auto;
- border-bottom: 1px solid gray;
- width:98%;
-<<<<<<< HEAD
- font-size: .75em;
-=======
+	vertical-align: middle;
+	overflow: auto;
+	border-bottom: 1px solid gray;
+	width:98%;
+	font-size: .75em;
 
->>>>>>> 07a38883fce87fc3bd28c0abc6565a2d66996883
 }
 
 .image-footer a{
