@@ -46,3 +46,46 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+/*
+<!-- ***************************************************************** -->
+<!-- *************** END OF RESET ********************** -->
+<!-- ***************************************************************** -->*/
+
+#main{
+	font-family: 'Helvetica','Tahoma','Arial',sans-serif;
+	margin: auto;
+	max-width: 1024px;
+	height:100%;
+	overflow: auto;
+}
+#readmore{
+}
+.review{
+ 	width: 75%;
+  max-height:220px;
+	margin:1.5em auto;
+	overflow: hidden;
+	transition: all 0.75s ease;
+}
+.review-footer{
+	border-bottom: 2px solid lightgray;
+	width: 75%;
+	margin:.5em auto;
+}
+p{
+	padding:1em;
+}
+em{
+	font-style: italic;
+}
+#readmore{
+	text-decoration: none;
+	color:blue;
+}
+a:hover{
+	text-decoration: underline;
+}
+.reveal{
+	max-height: 100%;
+}
