@@ -69,12 +69,15 @@ body{
   max-height: 200px;
 	margin:1.5em auto;
 	overflow: hidden;
-	transition: all 0.75s ease;
+	transition: all 1.75s ease;
 }
 .review-footer{
 	border-bottom: 2px solid lightgray;
 	width: 75%;
 	margin:.5em auto;
+	text-decoration: none;
+	color:blue;
+	transition:all 1.75s ease;
 }
 p{
 	padding:1em;
@@ -83,9 +86,16 @@ em{
 	font-style: italic;
 }
 #readmore{
-	text-decoration: none;
-	color:blue;
+	transition:all 1.75s ease;
 }
+#readless{
+	transition:all 1.75s ease;
+}
+.disabled{
+	display: none;
+}
+
+
 a:hover{
 	text-decoration: underline;
 }

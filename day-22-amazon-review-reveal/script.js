@@ -2,20 +2,22 @@
 //find height of last child, set post transition height there?
 (function(){
 
+var toggleButton = document.querySelector('.review-footer');
 var reviewText = document.querySelector('.review');
 var readMore = document.getElementById('readmore');
-var readLess = false;
+var readLess = document.getElementById('readless');
+var hiddenText = false;
 console.log(readMore);
 
-readMore.addEventListener('click',function(){
+toggleButton.addEventListener('click',function(){
   reviewText.classList.toggle('reveal');
   if (readLess){
-    readmore.innerHTML="<a>Read More<a>";
-    readLess = false;
+    hiddenText = false;
   }else{
-    readmore.innerHTML="<a>Read Less</a>";
-    readLess = true;
+    hiddenText = true;
   }
+  readMore.classList.toggle('disabled');
+  readLess.classList.toggle('disabled');
 });
 
 
