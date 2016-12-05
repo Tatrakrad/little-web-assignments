@@ -133,6 +133,15 @@ h1{
   margin:2px;
   transition: all 0.2s ease;
 }
+.reel{
+  background-image: url(svg-sprite-social.svg);
+  background-repeat: no-repeat;
+  background-size: 600%;
+  height: 64px;
+  width: 64px;
+  margin:1em;
+  transition: all 0.2s ease;
+}
 
 .button:hover{
   background-color: rgba(250,100,5,0.5);
@@ -147,26 +156,99 @@ h1{
   background-color: white;
 }
 
-/*reminder: 1.hor +right 2.ver -down*/
+/*reminder: 1.hor -right 2.ver -down*/
+
+
+.blanktwin{
+	background-position: 0px 0px;
+}
+.cake{
+	background-position: -64px 0px;
+}
+.skyline{
+	background-position: -128px 0px;
+}
+.bell{
+	background-position: -192px 0px;
+}
+.person{
+	background-position: -256px 0px;
+}
 .smile{
   background-position: -320px 0;
+}
+.twoperson{
+	background-position: 0 -64px;
+}
+.addpeople{
+	background-position: -64px -64px;
+}
+.happy{
+  background-position: -128px -64px;
+}
+.nobell{
+	background-position: -192px -64px;
+}
+.addperson{
+	background-position: -256px -64px;
+}
+.dead{
+  background-position: -320px -64px;
+}
+.sad{
+  background-position: 0 -128px;
+}
+.darkbell{
+	background-position: -64px -128px;
+}
+.ringbell{
+	background-position: -128px -128px;
+}
+.sleepbell{
+	background-position: -192px -128px;
+}
+.emptyperson{
+	background-position: -256px -128px;
+}
+.laugh{
+	background-position: -320px -128px;
+}
+.selection-box{
+	background-position: 0 -192px;
+}
+.camera{
+	background-position: -64px -192px;
+}
+.doubleperson{
+	background-position: -128px -192px;
+}
+.buildings{
+	background-position: -192px -192px;
+}
+.plusone{
+  background-position: -256px -192px;
+}
+.crank{
+	background-position: -320px -192px;
+}
+.bars{
+	background-position: 0 -256px;
+}
+.earth{
+	background-position: -64px -256px;
+}
+.mortarboard{
+	background-position: -128px -256px;
 }
 .frown{
   background-position: -192px -256px;
 }
 .neutral{
-  background-position: -256px -256px;
+	background-position: -256px -256px;
 }
-.happy{
-  background-position: -128px -64px;
+.fire{
+	background-position: -320px -256px;
 }
-.sad{
-  background-position: 0 -128px;
-}
-.dead{
-  background-position: -320px -64px;
-}
-
 .hidden{
   display: none;
 }

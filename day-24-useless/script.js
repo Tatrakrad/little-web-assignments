@@ -6,26 +6,24 @@
   //no spins until ready;
   var ready = false;
 
-  // var reels = [document.querySelector('.reel-one'),document.querySelector('.reel-two'),document.querySelector('reel-three')];
+  //spritesheet @600% splits 64x64
+  //svg-sprite-social has 5 rows 6 columns, 30 potential outcomes per reel
 
 
   var reelOne = document.querySelector('.reel-one');
   var reelTwo = document.querySelector('.reel-two');
   var reelThree = document.querySelector('.reel-three');
+  var reelFour = document.querySelector('.reel-four');
 
   //slot machine object
   var slotMachineReels = {
     spinning:false,
-    reels:[reelOne,reelTwo,reelThree],
-    reelPositions:[0,0,0,0]
+    reels:[reelOne,reelTwo,reelThree,reelFour],
+    reelPositions:[18,18,18,18]
   };
 
-  var potentialPositions = {
+  var potentialPositions = ["blanktwin","cake","skyline","bell","person","smile","twoperson","addpeople","nobell","happy","addperson","dead","sad","darkbell","ringbell","sleepbell","emptyperson","laugh","selection-box","camera","doubleperson","buildings","plusone","crank","bars","earth","mortarboard","frown","neutral","fire"];
 
-  };
-  //spritesheet @600% splits 64x64
-  //svg-sprite-social has 5 rows 6 columns
-
-
+  console.dir(potentialPositions);
 
 }());
