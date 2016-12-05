@@ -12,6 +12,8 @@
 
   //TOP display
   var facerow = document.querySelectorAll('.button.neutral');
+  var moneybox = document.querySelector('.cash');
+  moneybox.innerHTML = "$ " + cash;
   console.log(facerow);
 
   //slot machine object
@@ -20,6 +22,9 @@
     reels:[document.getElementById('reel-one'),document.getElementById('reel-two'),document.getElementById('reel-three'),document.getElementById('reel-four')],
     reelPositions:[],
     setReelPos: function(setPos){
+      // for(var i = 0; i<this.reels.length;i++){
+      //   this.reels[i] = potentialPositions[setPos[i]];
+      // } cant loop
       this.reels[0].className = potentialPositions[setPos[0]];
       this.reels[1].className = potentialPositions[setPos[1]];
       this.reels[2].className = potentialPositions[setPos[2]];
@@ -80,7 +85,10 @@
 
     if(win){
       console.log('big winner');
-      cash += 10;
+      cash += 2;
+      for (var j=0; j<facerow.length; i++){
+        facerow[j].classList.add('happy');
+      }
     }else{
       console.log('big loser');
       cash --;
@@ -90,13 +98,14 @@
 
   var play = function(){
     //will only be ready on first play, after a reset (2nd push), AND not currently in play (spinning)
+
     if (ready && cash>0){
       ready = !ready;
       slotMachine.spin();
       plays ++;
       console.log("plays",plays);
       console.log("cash",cash);
-
+      moneybox.innerHTML = "$ " + cash;
     }else if(!ready && cash>0){
       slotMachine.resetReels(slotMachine.spinning);
     }else{
@@ -106,6 +115,7 @@
         facerow[i].classList.toggle('neutral');
         facerow[i].classList.toggle('dead');
       }
+      moneybox.innerHTML = "NOPE";
     }
   };
   console.log(slotMachine.reelPositions);

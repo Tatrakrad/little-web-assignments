@@ -62,7 +62,7 @@ li{
 
 button{
   font-size: 2em;
-  padding:1em;
+  padding:0.5em;
 }
 
 h1{
@@ -89,9 +89,9 @@ h1{
 .buttonbar-1{
   background-color: goldenrod;
   margin: 2em auto;
-  padding:1em;
+  padding:0.5em;
   max-width: 720px;
-  min-height: 120px;
+  min-height: 60px;
   border:3px solid black;
   border-top-right-radius: 55px;
   border-bottom-left-radius:55px;
@@ -109,7 +109,7 @@ h1{
 .buttonbar-3{
   background-color: firebrick;
   margin: 2em auto;
-  padding:1em;
+  padding:0.5em;
   max-width: 720px;
   min-height: 120px;
   border:3px solid black;
@@ -132,6 +132,15 @@ h1{
   width: 64px;
   margin:2px;
   transition: all 0.1s ease;
+}
+.cash{
+	height: 64px;
+	width:64px;
+	color:white;
+	vertical-align: middle;
+	font-size: 1.5em;
+	background-color: green;
+	padding:2px;
 }
 #reel-one{
   background-image: url(svg-sprite-social.svg);
