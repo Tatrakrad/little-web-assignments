@@ -11,18 +11,18 @@
   //svg-sprite-social has 5 rows 6 columns, 30 potential outcomes per reel
 
 
-  var reelOne = document.querySelector('.reel-one');
-  var reelTwo = document.querySelector('.reel-two');
-  var reelThree = document.querySelector('.reel-three');
-  var reelFour = document.querySelector('.reel-four');
 
-  console.log(reelOne);
 
   //slot machine object
   var slotMachineReels = {
     spinning:false,
-    reels:[reelOne,reelTwo,reelThree,reelFour],
-    reelPositions:[18,18,18,18]
+    reels:[document.getElementById('reel-one'),document.querySelector('.reel-two'),document.querySelector('.reel-three'),document.querySelector('.reel-four')],
+    reelPositions:[18,18,18,18],
+    setReelPos: function(pos1,pos2,pos3,pos4){
+      var newPos1 = potentialPositions[pos1];
+      console.log(this.reels[0].classlist);
+      this.reels[0].classlist.toggle(newpos1);
+    }
   };
 
   console.log(slotMachineReels);
@@ -30,26 +30,21 @@
 
   var potentialPositions = ["blanktwin","cake","skyline","bell","person","smile","twoperson","addpeople","nobell","happy","addperson","dead","sad","darkbell","ringbell","sleepbell","emptyperson","laugh","selection-box","camera","doubleperson","buildings","plusone","crank","bars","earth","mortarboard","frown","neutral","fire"];
 
-  console.dir(potentialPositions);
 
   var spin = function(){
+    var newPos = [0,0,0,0];
     var spinTime = setInterval(function(){
       for(var i=0; i<slotMachineReels.reelPositions.length;i++){
-        var random = Math.ceil(Math.random()*slotMachineReels.reelPositions.length);
-        slotMachineReels.reelPositions[i]=random;
+        var random = Math.ceil(Math.random()*potentialPositions.length);
+        newPos[i]=random;
+        console.log(newPos);
       }
-      setReelPos(slotMachineReels.reelPositions[0],slotMachineReels.reelPositions[1],slotMachineReels.reelPositions[2],slotMachineReels.reelPositions[3]);
+      slotMachineReels.setReelPos(newPos[0],newPos[1],newpos[2],newPos[3]);
     },500);
     setTimeout(function(){clearInterval(spinTime);},5000);
 
   };
 
-  var setReelPos = function(pos1,pos2,pos3,pos4){
-    var reel1 = potentialPositions[pos1];
-    console.log(reel1);
-    console.log(slotMachineReels.reels[0]);
-    slotMachineReels.reels[0].classlist.toggle('"'+reel1+'"');
-  };
 
   var play = function(){
     if (ready){
@@ -62,6 +57,6 @@
     }
   };
 
-  playButton.addEventListener('click',play());
+  playButton.addEventListener('click',play);
 
 }());
