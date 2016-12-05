@@ -151,11 +151,9 @@ h1{
 .smile{
   background-position: -320px 0;
 }
-
 .frown{
   background-position: -192px -256px;
 }
-
 .neutral{
   background-position: -256px -256px;
 }
@@ -165,7 +163,6 @@ h1{
 .sad{
   background-position: 0 -128px;
 }
-
 .dead{
   background-position: -320px -64px;
 }
