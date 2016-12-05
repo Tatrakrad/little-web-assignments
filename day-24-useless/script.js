@@ -17,11 +17,6 @@
     reels:[document.getElementById('reel-one'),document.getElementById('reel-two'),document.getElementById('reel-three'),document.getElementById('reel-four')],
     reelPositions:[30,30,30,30],
     setReelPos: function(setPos){
-      // var newPos1 = potentialPositions[setPos[0]];
-      // var newPos2 = potentialPositions[setPos[1]];
-      // var newPos3 = potentialPositions[setPos[2]];
-      // var newPos4 = potentialPositions[setPos[3]];
-      // console.log(slotMachine.reels);
       this.reels[0].className = potentialPositions[setPos[0]];
       this.reels[1].className = potentialPositions[setPos[1]];
       this.reels[2].className = potentialPositions[setPos[2]];
@@ -42,9 +37,6 @@
       setTimeout(function(){clearInterval(spinTime);
         spinning = false;
         ready = true;
-        console.log(spinning);
-        console.log(ready);
-        slotMachine.resetReels(spinning);
         },6000);
 
 
@@ -69,6 +61,7 @@
   var play = function(){
     if (ready){
       ready = !ready;
+      slotMachine.resetReels(slotMachine.spinning);
       slotMachine.spin();
 
     }else{
