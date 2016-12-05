@@ -16,7 +16,7 @@
   //slot machine object
   var slotMachineReels = {
     spinning:false,
-    reels:[document.getElementById('reel-one'),document.querySelector('.reel-two'),document.querySelector('.reel-three'),document.querySelector('.reel-four')],
+    reels:[document.getElementById('reel-one'),document.getElementById('reel-two'),document.getElementById('reel-three'),document.getElementById('reel-four')],
     reelPositions:[18,18,18,18],
     setReelPos: function(pos1,pos2,pos3,pos4){
       var newPos1 = potentialPositions[pos1];
@@ -39,7 +39,7 @@
         newPos[i]=random;
         console.log(newPos);
       }
-      slotMachineReels.setReelPos(newPos[0],newPos[1],newpos[2],newPos[3]);
+      slotMachineReels.setReelPos(newPos[0],newPos[1],newPos[2],newPos[3]);
     },500);
     setTimeout(function(){clearInterval(spinTime);},5000);
 
