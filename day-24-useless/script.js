@@ -16,16 +16,17 @@
     spinning:false,
     reels:[document.getElementById('reel-one'),document.getElementById('reel-two'),document.getElementById('reel-three'),document.getElementById('reel-four')],
     reelPositions:[30,30,30,30],
-    setReelPos: function(pos1,pos2,pos3,pos4){
-      var newPos1 = potentialPositions[pos1];
-      var newPos2 = potentialPositions[pos2];
-      var newPos3 = potentialPositions[pos3];
-      var newPos4 = potentialPositions[pos4];
-      console.log(slotMachine.reels[0]);
-      this.reels[0].classList.toggle(newPos1);
-      this.reels[1].classList.toggle(newPos2);
-      this.reels[2].classList.toggle(newPos3);
-      this.reels[3].classList.toggle(newPos4);
+    setReelPos: function(setPos){
+      // var newPos1 = potentialPositions[setPos[0]];
+      // var newPos2 = potentialPositions[setPos[1]];
+      // var newPos3 = potentialPositions[setPos[2]];
+      // var newPos4 = potentialPositions[setPos[3]];
+      // console.log(slotMachine.reels);
+      this.reels[0].className = potentialPositions[setPos[0]];
+      this.reels[1].className = potentialPositions[setPos[1]];
+      this.reels[2].className = potentialPositions[setPos[2]];
+      this.reels[3].className = potentialPositions[setPos[3]];
+
     },
     spin: function(){
       var newPos = [0,0,0,0];
@@ -36,8 +37,8 @@
           newPos[i]=random;
           // console.log(newPos);
         }
-        slotMachine.setReelPos(newPos[0],newPos[1],newPos[2],newPos[3]);
-      },100);
+        slotMachine.setReelPos(newPos);
+      },200);
       setTimeout(function(){clearInterval(spinTime);
         spinning = false;
         ready = true;
@@ -49,9 +50,10 @@
 
     },
     resetReels: function(cantReset){
+      console.log('should reset now');
       if(!cantReset){
         for(var i=0;i<slotMachine.reels.length;i++){
-          slotMachine.reels[i].classname = "reel selection-box";
+          slotMachine.reels[i].className = "reel selection-box";
         }
       }else{
         console.log('problems');

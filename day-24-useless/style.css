@@ -133,7 +133,34 @@ h1{
   margin:2px;
   transition: all 0.1s ease;
 }
-.reel{
+#reel-one{
+  background-image: url(svg-sprite-social.svg);
+  background-repeat: no-repeat;
+  background-size: 600%;
+  height: 64px;
+  width: 64px;
+  margin:1em;
+  transition: all 0.2s ease;
+}
+#reel-two{
+  background-image: url(svg-sprite-social.svg);
+  background-repeat: no-repeat;
+  background-size: 600%;
+  height: 64px;
+  width: 64px;
+  margin:1em;
+  transition: all 0.2s ease;
+}
+#reel-three{
+  background-image: url(svg-sprite-social.svg);
+  background-repeat: no-repeat;
+  background-size: 600%;
+  height: 64px;
+  width: 64px;
+  margin:1em;
+  transition: all 0.2s ease;
+}
+#reel-four{
   background-image: url(svg-sprite-social.svg);
   background-repeat: no-repeat;
   background-size: 600%;
