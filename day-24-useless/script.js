@@ -26,6 +26,7 @@
   };
 
   console.log(slotMachineReels);
+  console.log(slotMachineReels.reels[0]);
 
   var potentialPositions = ["blanktwin","cake","skyline","bell","person","smile","twoperson","addpeople","nobell","happy","addperson","dead","sad","darkbell","ringbell","sleepbell","emptyperson","laugh","selection-box","camera","doubleperson","buildings","plusone","crank","bars","earth","mortarboard","frown","neutral","fire"];
 
@@ -38,14 +39,16 @@
         slotMachineReels.reelPositions[i]=random;
       }
       setReelPos(slotMachineReels.reelPositions[0],slotMachineReels.reelPositions[1],slotMachineReels.reelPositions[2],slotMachineReels.reelPositions[3]);
-      setTimeout(function(){clearInterval(spin);},5000);
     },500);
+    setTimeout(function(){clearInterval(spinTime);},5000);
+
   };
 
   var setReelPos = function(pos1,pos2,pos3,pos4){
     var reel1 = potentialPositions[pos1];
     console.log(reel1);
-    reelOne.classlist.toggle('"'+reel1+'"');
+    console.log(slotMachineReels.reels[0]);
+    slotMachineReels.reels[0].classlist.toggle('"'+reel1+'"');
   };
 
   var play = function(){
