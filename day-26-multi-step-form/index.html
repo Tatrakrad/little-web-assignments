@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MultiStepForm</title>
+    <link rel='stylesheet' href='style.css' />
+  </head>
+  <body>
+    <section id='main'>
+      <h1>This is a Multi Page Form</h1>
+
+      <form method="post">
+
+        <section id='form-pages'>
+
+          <div id='page-1' class='hidden'>
+
+            <div class='page-content'>
+              <h3>Page 1</h3>
+              <h4>Your Name</h4>
+              <label for="first-name">First Name:
+                <input type="text" name="first-name" />
+              </label>
+              <label for="last-name">Last Name:
+                <input type="text" name="last-name" />
+              </label>
+            </div>
+
+          </div>
+
+          <div id='page-2' class='hidden'>
+
+            <div class="page-content">
+              <h3>Page 2</h3>
+              <h4>Spoken Languages</h4>
+              <label>English
+               <input type="checkbox" name="lang" value="english"></input>
+              </label>
+              <label>Spanish
+               <input type="checkbox" name="lang" value="spanish"></input>
+              </label>
+              <label>French
+               <input type="checkbox" name="lang" value="french"></input>
+              </label>
+              <label>German
+               <input type="checkbox" name="lang" value="german"></input>
+              </label>
+              <label>Italian
+               <input type="checkbox" name="lang" value="italian"></input>
+              </label>
+              <label>Tamil
+               <input type="checkbox" name="lang" value="tamil"></input>
+              </label>
+              <label>Cantonese
+               <input type="checkbox" name="lang" value="cantonese"></input>
+              </label>
+            </div>
+
+          </div>
+
+          <div id='page-3' class='hidden'>
+
+            <div class="page-content">
+              <h3>Page 3</h3>
+              <h4>Select Your UltimateComrade<sub>&trade;</sub> Personality Type</h4>
+              <label>Tovarisch
+               <input type="radio" name="trait" value="tovarisch"></input>
+              </label>
+              <label>Bodnik
+               <input type="radio" name="trait" value="bodnik"></input>
+              </label>
+              <label>Vaporwave Space Princess
+               <input type="radio" name="trait" value="vaporwave"></input>
+              </label>
+              <label>Negative Dialectician
+               <input type="radio" name="trait" value="dialectic"></input>
+              </label>
+              <label>Secret Quincy
+               <input type="radio" name="trait" value="quincy"></input>
+              </label>
+              <label>Parpo Whisperer
+               <input type="radio" name="trait" value="whisperer"></input>
+              </label>
+              <label>Verrucht
+               <input type="radio" name="trait" value="verrucht"></input>
+              </label>
+
+            </div>
+
+          </div>
+
+          <div id='page-4' class = 'hidden'>
+
+            <div class="page-content">
+              <h3>Page 4</h3>
+              <h4>What would Theodore Adorno of the Frankfurt School wish upon our children?</h4>
+              <textarea name="essay">A Piggyback Ride and a Wish...</textarea>
+            </div>
+
+          </div>
+
+        </section>
+        <div class="buttons">
+          <button type="button" id="prev">Previous</button>
+          <button type="button" id="next">Next</button>
+          <button type="submit" id="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
