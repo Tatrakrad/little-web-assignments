@@ -6,6 +6,10 @@ h1,h2,h3,h4{
 h4{
   margin-bottom: 1.25em;
 }
+textarea{
+  width: 75%;
+  min-height: 120px;
+}
 
 #main{
   font-family: 'Helvetica','Tahoma','Arial',sans-serif;
