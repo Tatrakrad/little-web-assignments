@@ -52,7 +52,7 @@ table {
 /**/
 
 h1{
-	font-size: 2em;
+	font-size: 2.225em;
 	font-weight: bold;
 	letter-spacing: 3px;
 }
@@ -66,24 +66,30 @@ h1{
 
 }
 header{
-	text-align: center;
-	margin: 0 auto;
-	position: fixed;
-	padding: 2%;
-	color:yellow;
-	background-color: rgba(0, 0, 0, 0.9);
-	width: 100%;
+
 }
-.scrollheader header{
-	z-index: 100;
-}
+
 .scrollheader{
 	overflow: auto;
 	/*collapses anyway*/
-
+	z-index: 100;
+	background-color: rgba(0, 0, 0, 0.778);
+	width: 100%;
+	position: fixed;
+	transition:all 0.333s ease;
+	margin: 0 auto;
+	padding:10px 50px;
+	color:yellow;
+	line-height: 1.2;
+	font-size: 0.75em;
 }
 .transparent{
 	background-color: rgba(0, 0, 0, 0.01);
+	font-size: 1em;
+	padding: 6% 0 3% 0;
+  line-height: 2;
+	text-align: center;
+	font-size: inherit;
 }
 
 #main{
@@ -91,7 +97,7 @@ header{
 	min-height: 720px;
 	max-width: 960px;
 	margin: 0 auto;
-  padding:200px 0 0 0;
+  padding:300px 0 0 0;
 	position: relative;
 }
 

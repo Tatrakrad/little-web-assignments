@@ -10,11 +10,14 @@ window.addEventListener('scroll', function(evt) {
   console.log("offsetY",window.pageYOffset);
 
 
-  if (window.pageYOffset > 180 && !headerSwitched) {
+  if (window.pageYOffset > 130 && !headerSwitched) {
     console.log('change header');
     console.log("headerBox.firstElementChild",headerBox.firstElementChild);
-    headerBox.firstElementChild.classList.toggle('transparent');
+    headerBox.classList.toggle('transparent');
     headerSwitched = true;
+  } else if (window.pageYOffset < 130 && headerSwitched){
+    headerBox.classList.toggle('transparent');
+    headerSwitched = false;
   }
 
 });
