@@ -42,6 +42,17 @@ nextButton.addEventListener('click',function(){
   }
 });
 
+submitButton.addEventListener('click',function(evt){
+
+  if (position === 0){
+    var fieldFirstName = document.querySelector('.first-name');
+    var fieldLastName = document.querySelector('.last-name');
+
+    validateHasValue(evt,fieldFirstName);
+    validateHasValue(evt,fieldLastName);
+  }
+
+});
 
 function switchPage(){
   localStorage.setItem('saved-page',position);
@@ -53,6 +64,17 @@ function switchPage(){
 
   lastPos = position;
   localStorage.setItem('saved-last',lastPos);
+}
+
+function validateHasValue(evt, domElement){
+
+  if(domElement.value === ''){
+    evt.preventDefault();
+    domElement.classList.add('warn');
+  }else{
+    domElement.classList.remove('warn');
+  }
+
 }
 
 
