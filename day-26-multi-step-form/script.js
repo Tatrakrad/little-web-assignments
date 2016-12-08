@@ -4,6 +4,8 @@ var prevButton = document.getElementById('prev');
 var nextButton = document.getElementById('next');
 var submitButton = document.getElementById('submit');
 
+
+
 //content selectors
 //array pages this way all start hidden
 var formPages = document.querySelectorAll('.hidden');
@@ -17,6 +19,8 @@ var lastPos = 0;
 
 if(localStorageValue !==null){
   position = Number(localStorageValue);
+}
+if(localLastPageValue !==null){
   lastPos = Number(localLastPageValue);
 }
 
@@ -24,8 +28,7 @@ console.dir(formPages);
 
 console.log("num pages => ",maxPosition);
 
-//show page 1 on load
-formPages[position].classList.toggle('hidden');
+formPages[position].classList.remove('hidden');
 
 
 prevButton.addEventListener('click',function(){
@@ -50,11 +53,21 @@ submitButton.addEventListener('click',function(evt){
 
     validateHasValue(evt,fieldFirstName);
     validateHasValue(evt,fieldLastName);
+  }else if (position == 1){
+
+
+  }else if (position == 2){
+    var evalRadios = document.getElementsByName("trait");
+    console.log(evalRadios,"evalRadios");
+    validateRadio(evt,evalRadios);
+
   }
 
 });
 
 function switchPage(){
+  console.log("position",position);
+  console.log("lastPos",lastPos);
   localStorage.setItem('saved-page',position);
 
   var selectOld = formPages[lastPos];
@@ -68,14 +81,41 @@ function switchPage(){
 
 function validateHasValue(evt, domElement){
 
+  var alertTextBox = document.querySelector('.alert');
+
   if(domElement.value === ''){
     evt.preventDefault();
     domElement.classList.add('warn');
+    alertTextBox.style.display = "block";
   }else{
     domElement.classList.remove('warn');
+    alertTextBox.style.display = "none";
   }
 
 }
+
+function validateRadio(evt,domElement){
+  var alertTextBox = document.querySelector('#page-3 .alert')
+  console.log("page 3 alert",alertTextBox);
+  if(!isRadioSelected(domElement)){
+    evt.preventDefault();
+    alertTextBox.style.display = "block";
+  }else{
+    alertTextBox.style.display = "none";
+  }
+
+
+}
+
+function isRadioSelected (radios)
+{
+  for (i = 0; i < radios.length; i++)
+  {
+    if (radios[i].checked) return true;
+  }
+  return false;
+}
+
 
 
 })();
