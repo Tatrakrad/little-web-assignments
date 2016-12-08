@@ -1,6 +1,7 @@
 console.log('script file hooked up!');
 
 var headerBox = document.querySelector('.scrollheader');
+var subheading = document.querySelector('.sub-title-text');
 var mainContent = document.querySelector('#main');
 
 var headerSwitched = false;
@@ -11,13 +12,17 @@ window.addEventListener('scroll', function(evt) {
 
 
   if (window.pageYOffset > 130 && !headerSwitched) {
-    console.log('change header');
-    console.log("headerBox.firstElementChild",headerBox.firstElementChild);
-    headerBox.classList.toggle('transparent');
+    changeHeader();
     headerSwitched = true;
   } else if (window.pageYOffset < 130 && headerSwitched){
-    headerBox.classList.toggle('transparent');
+    changeHeader();
     headerSwitched = false;
   }
 
 });
+
+function changeHeader(){
+  headerBox.classList.toggle('transparent');
+  subheading.classList.toggle('hidden');
+
+}

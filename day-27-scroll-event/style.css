@@ -52,11 +52,13 @@ table {
 /**/
 
 h1{
-	font-size: 2.225em;
+	font-size: 2.575em;
 	font-weight: bold;
 	letter-spacing: 3px;
 }
-
+p{
+	padding:2em;
+}
 #outer{
 	font-family:'Helvetica','Arial','Tahoma',sans-serif;
 	background-image: linear-gradient(midnightblue,cornflowerblue,lightgray);
@@ -65,22 +67,20 @@ h1{
 	overflow: auto;
 
 }
-header{
 
-}
 
 .scrollheader{
 	overflow: auto;
 	/*collapses anyway*/
 	z-index: 100;
-	background-color: rgba(0, 0, 0, 0.778);
+	background-color: rgba(0, 0, 0, 0.878);
 	width: 100%;
 	position: fixed;
 	transition:all 0.333s ease;
 	margin: 0 auto;
 	padding:10px 50px;
 	color:yellow;
-	line-height: 1.2;
+	line-height: 1.5;
 	font-size: 0.75em;
 }
 .transparent{
@@ -103,8 +103,14 @@ header{
 }
 
 .primary{
-	outline: 1px solid gainsboro;
+	background-color: rgba(0, 0, 0, 0.5755);
+	border: 1px solid gainsboro;
 	color:orangered;
 	margin: 3em auto;
 	padding:1em;
+	line-height: 1.33;
+	font-size: 1.2em;
+}
+.hidden{
+	display: none;
 }
