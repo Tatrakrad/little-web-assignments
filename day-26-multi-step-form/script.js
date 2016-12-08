@@ -4,6 +4,8 @@ var prevButton = document.getElementById('prev');
 var nextButton = document.getElementById('next');
 var submitButton = document.getElementById('submit');
 
+
+
 //content selectors
 //array pages this way all start hidden
 var formPages = document.querySelectorAll('.hidden');
@@ -17,6 +19,8 @@ var lastPos = 0;
 
 if(localStorageValue !==null){
   position = Number(localStorageValue);
+}
+if(localLastPageValue !==null){
   lastPos = Number(localLastPageValue);
 }
 
@@ -24,8 +28,7 @@ console.dir(formPages);
 
 console.log("num pages => ",maxPosition);
 
-//show page 1 on load
-formPages[position].classList.toggle('hidden');
+formPages[position].classList.remove('hidden');
 
 
 prevButton.addEventListener('click',function(){
@@ -55,6 +58,8 @@ submitButton.addEventListener('click',function(evt){
 });
 
 function switchPage(){
+  console.log("position",position);
+  console.log("lastPos",lastPos);
   localStorage.setItem('saved-page',position);
 
   var selectOld = formPages[lastPos];
@@ -68,11 +73,15 @@ function switchPage(){
 
 function validateHasValue(evt, domElement){
 
+  var alertTextBox = document.querySelector('.alert');
+
   if(domElement.value === ''){
     evt.preventDefault();
     domElement.classList.add('warn');
+    alertTextBox.style.display = "block";
   }else{
     domElement.classList.remove('warn');
+    alertTextBox.style.display = "none";
   }
 
 }
