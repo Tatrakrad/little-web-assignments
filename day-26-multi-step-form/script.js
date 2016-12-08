@@ -50,12 +50,12 @@ submitButton.addEventListener('click',function(evt){
   if (position === 0){
     var fieldFirstName = document.querySelector('.first-name');
     var fieldLastName = document.querySelector('.last-name');
-
     validateHasValue(evt,fieldFirstName);
     validateHasValue(evt,fieldLastName);
   }else if (position == 1){
-
-
+    var evalBoxes = document.getElementsByName("lang");
+    console.log("evalBoxes",evalBoxes);
+    validateCheckbox(evt,evalBoxes);
   }else if (position == 2){
     var evalRadios = document.getElementsByName("trait");
     console.log(evalRadios,"evalRadios");
@@ -95,7 +95,7 @@ function validateHasValue(evt, domElement){
 }
 
 function validateRadio(evt,domElement){
-  var alertTextBox = document.querySelector('#page-3 .alert')
+  var alertTextBox = document.querySelector('#page-3 .alert');
   console.log("page 3 alert",alertTextBox);
   if(!isRadioSelected(domElement)){
     evt.preventDefault();
@@ -103,7 +103,6 @@ function validateRadio(evt,domElement){
   }else{
     alertTextBox.style.display = "none";
   }
-
 
 }
 
@@ -116,6 +115,23 @@ function isRadioSelected (radios)
   return false;
 }
 
+function validateCheckbox(evt,domElement){
+  var alertTextBox = document.querySelector('#page-2 .alert');
+  if(!isBoxSelected(domElement)){
+    evt.preventDefault();
+    alertTextBox.style.display = "block";
+  }else{
+    alertTextBox.style.display = "none";
+  }
+}
+
+function isBoxSelected(boxes){
+  for (i = 0; i < boxes.length; i++)
+  {
+    if (boxes[i].checked) return true;
+  }
+  return false;
+}
 
 
 })();
