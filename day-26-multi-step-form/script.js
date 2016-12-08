@@ -53,6 +53,14 @@ submitButton.addEventListener('click',function(evt){
 
     validateHasValue(evt,fieldFirstName);
     validateHasValue(evt,fieldLastName);
+  }else if (position == 1){
+
+
+  }else if (position == 2){
+    var evalRadios = document.getElementsByName("trait");
+    console.log(evalRadios,"evalRadios");
+    validateRadio(evt,evalRadios);
+
   }
 
 });
@@ -85,6 +93,29 @@ function validateHasValue(evt, domElement){
   }
 
 }
+
+function validateRadio(evt,domElement){
+  var alertTextBox = document.querySelector('#page-3 .alert')
+  console.log("page 3 alert",alertTextBox);
+  if(!isRadioSelected(domElement)){
+    evt.preventDefault();
+    alertTextBox.style.display = "block";
+  }else{
+    alertTextBox.style.display = "none";
+  }
+
+
+}
+
+function isRadioSelected (radios)
+{
+  for (i = 0; i < radios.length; i++)
+  {
+    if (radios[i].checked) return true;
+  }
+  return false;
+}
+
 
 
 })();
