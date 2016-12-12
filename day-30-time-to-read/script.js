@@ -4,6 +4,8 @@
   var timeToReadDisplay = document.querySelector('.time-to-read');
 
   var paraWordsArr = document.querySelectorAll('p');
+
+  var estimateWPM = 230;
   var totalWordCount = 0;
 
   function countParagraphWords(paras){
@@ -16,12 +18,12 @@
   }
   console.log(paraWordsArr);
 
-  function timeToRead(wordCount){
+  function timeToRead(wordCount,wpm){
 
-    return Math.ceil(totalWordCount/200);
+    return Math.ceil(totalWordCount/wpm);
   }
 
   totalWordCount = countParagraphWords(paraWordsArr);
-  timeToReadDisplay.innerHTML = timeToRead(totalWordCount);
+  timeToReadDisplay.innerHTML = timeToRead(totalWordCount,estimateWPM);
 
 }());

@@ -64,7 +64,8 @@ table {
 	text-align: center;
 	border: 1px solid lightgray;
 	display: inline-block;
-
+	width: 100%;
+	color:#3f3f3f;
 }
 
 #main{
@@ -97,4 +98,9 @@ h2{
 h3{
 	font-size: 1.5em;
 	line-height: 1.1;
+}
+
+span.time-to-read{
+	color:blue;
+	font-weight: bolder;
 }
