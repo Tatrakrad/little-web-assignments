@@ -15,6 +15,9 @@
   var moneybox = document.querySelector('.cash');
   moneybox.innerHTML = "$ " + cash;
   console.log(facerow);
+  //LOW display
+  var warningTextBox = document.getElementById('out-text');
+  var warningText = warningTextBox.getElementsByTagName('H1');
 
   //slot machine object
   var slotMachine = {
@@ -33,9 +36,10 @@
     },
     spin: function(){
       //if newPos has initial value of 0,0,0,0, triggers automatic win?
+      console.log("spinning",slotMachine.spinning);
       var newPos = [];
+      slotMachine.spinning=true;
       var spinTime = setInterval(function(){
-        spinning=true;
         for(var i=0; i<4;i++){
           var random = Math.floor(Math.random()*potentialPositions.length);
           newPos[i]=random;
@@ -49,6 +53,7 @@
         console.log(slotMachine.reelPositions);
         bet(slotMachine.reelPositions);
         spinning = false;
+        ready = true;
         },6000);
 
     },
@@ -86,12 +91,14 @@
     if(win){
       console.log('big winner');
       cash += 2;
+      moneybox.innerHTML = "$ " + cash;
       for (var j=0; j<facerow.length; i++){
         facerow[j].classList.add('happy');
       }
     }else{
       console.log('big loser');
       cash --;
+      moneybox.innerHTML = "$ " + cash;
     }
 
   };
@@ -105,17 +112,21 @@
       plays ++;
       console.log("plays",plays);
       console.log("cash",cash);
-      moneybox.innerHTML = "$ " + cash;
-    }else if(!ready && cash>0){
-      slotMachine.resetReels(slotMachine.spinning);
-    }else{
+
+
+    }else if(ready && cash<=0){
       //game over!
+      warningText.textContent = "ESCORT THIS DEADBEAT OFF THE PREMISES";
+      warningTextBox.classList.toggle('hidden');
       console.log('ESCORT THIS DEADBEAT OFF THE PREMISES');
       for (var i=0; i<facerow.length; i++){
         facerow[i].classList.toggle('neutral');
         facerow[i].classList.toggle('dead');
       }
       moneybox.innerHTML = "NOPE";
+    }else{
+      console.log('not doing anything');
+      return;
     }
   };
   console.log(slotMachine.reelPositions);
