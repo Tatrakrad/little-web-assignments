@@ -64,17 +64,29 @@ body {
 	margin: 0 auto;
 	background-color: ivory;
 }
+li p{
+	border-top: 1px solid darkslategray;
+	padding-top:0.5em;
+}
 ol{
-	margin: 1em auto;
+	margin: 0 auto;
 	border: 4px groove forestgreen;
-	padding:1.5em;
+	padding:0;
 	list-style-type: lower-greek;
+	width: 80%;
+	overflow: auto;
 }
 li{
-	margin: 1em auto;
+	margin: 1em 2%;
 	border: 1px solid darkgreen;
 	padding:0.5em;
+	text-align: center;
+	display: inline-block;
+	width:44%;
+	height: 100px;
+	float:left;
 }
+
 h1{
 	text-align: center;
 	font-size: 2.225em;
