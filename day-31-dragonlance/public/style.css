@@ -67,6 +67,7 @@ body {
 li p{
 	border-top: 1px solid darkslategray;
 	padding-top:0.5em;
+	color:rgba(0, 0, 0, 0.78);
 }
 ol{
 	margin: 0 auto;
