@@ -99,12 +99,15 @@ h3{
 }
 .gallery li{
 	float:left;
-	padding:15px;
-	margin:15px;
+	padding:5px;
+	margin:5px;
 }
 .gallery img{
 	border:5px solid firebrick;
 }
 .gallery img:hover{
 	border:5px solid gold;
+}
+.gallery img:active{
+	border:5px solid black;
 }

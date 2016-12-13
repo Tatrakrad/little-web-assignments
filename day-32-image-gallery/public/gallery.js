@@ -41,6 +41,8 @@
     }
 
     console.log(attr);
+
+    //dont display the image of an attributeless non listitem!
     if(attr !== undefined){
 
       var currentlySelected = document.querySelector('.selected');

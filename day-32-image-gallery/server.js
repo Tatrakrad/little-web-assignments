@@ -30,6 +30,26 @@ app.get('/api/pics', function(req, res) {
         thumbnail: 'library-4-thumbnail.jpg',
         fullSize: 'library-4.jpg',
         description: 'Library #4'
+      },
+      {
+        thumbnail:'poptarts-5-thumbnail.jpg',
+        fullSize: 'poptarts-5.jpg',
+        description: 'A box of the Finest Tarts'
+      },
+      {
+        thumbnail:'sauerkraut-6-thumbnail.jpg',
+        fullSize: 'sauerkraut-6.jpg',
+        description: 'A fine sort of pickled cabbage'
+      },
+      {
+        thumbnail:'Stanley-Kubrick-7-thumbnail.jpg',
+        fullSize:'Stanley-Kubrick-7.jpg',
+        description:'The director of several fine films including: 2001 A Space Odyssey, Dr. Strangelove, and Spartacus'
+      },
+      {
+        thumbnail:'tiltshiftrocket-8-thumbnail.jpg',
+        fullSize:'tiltshiftrocket-8.jpg',
+        description:'Brb going to space'
       }
     ]
   });
