@@ -30,6 +30,32 @@
 
   picturesList.addEventListener('click',function(evt){
 
+    console.log(evt.target);
+    var attr = evt.target.getAttribute('pic-index');
+    console.log(attr);
+
+    var currentlySelected = document.querySelector('.selected');
+    if (currentlySelected !== null){
+      currentlySelected.classList.remove('selected');
+    }
+    evt.target.classList.add('selected');
+
+    var showPic = apiData.pictures[attr];
+    console.log("show this picture", showPic);
+    //picture object to display fullSize with description
+
+    var picDisplay = document.querySelector('.display');
+    picDisplay.innerHTML = " ";
+
+    var img = document.createElement('img');
+    img.src = showPic.fullSize;
+
+    var caption = document.createElement('h2');
+    caption.textContent = showPic.description;
+
+    //append image to display
+    picDisplay.appendChild(img);
+    picDisplay.appendChild(caption);
 
 
   });
