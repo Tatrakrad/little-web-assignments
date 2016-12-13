@@ -31,7 +31,13 @@
   picturesList.addEventListener('click',function(evt){
 
     console.log(evt.target);
-    var attr = evt.target.getAttribute('pic-index');
+    var attr;
+    if (evt.target.tagName === 'LI'){
+      attr = evt.target.getAttribute('pic-index');
+    }else{
+      attr = evt.target.parentNode.getAttribute('pic-index');
+    }
+
     console.log(attr);
 
     var currentlySelected = document.querySelector('.selected');
@@ -50,7 +56,7 @@
     var img = document.createElement('img');
     img.src = showPic.fullSize;
 
-    var caption = document.createElement('h2');
+    var caption = document.createElement('h3');
     caption.textContent = showPic.description;
 
     //append image to display
