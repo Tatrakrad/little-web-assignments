@@ -1,2 +1,7 @@
 @import "reset";
 @import "variables";
+
+#main{
+  font-family:$mainfont;
+  max-width: 1200px;
+}

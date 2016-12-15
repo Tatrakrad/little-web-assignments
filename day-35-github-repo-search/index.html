@@ -10,17 +10,32 @@
 
   <body>
 
-    <section id=#main class="page">
+    <section id="main" class="page">
 
       <h1>day-35-github-repo-search</h1>
 
       <div class="search-box">
         <input class = "name-input" />
         <!-- remember to select and access with variable.value -->
-        <button class ="search-button"type="button" name="button"></button>
+        <button class ="search-button"type="button" name="button">SEARCH</button>
       </div>
 
-      <div class="results-list">
+      <div class="results">
+
+        <ol class="users-list">
+
+        </ol>
+
+        <script type="text/html" class="github-users-template">
+
+          <li>
+            <div>
+              Name: {{login}}
+            </div>
+
+          </li>
+
+        </script>
 
       </div>
 
