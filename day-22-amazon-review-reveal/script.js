@@ -9,6 +9,9 @@ var readLess = document.getElementById('readless');
 var hiddenText = false;
 console.log(readMore);
 
+var minHeightText = window.getComputedStyle(reviewText).height;
+console.log(minHeightText);
+
 toggleButton.addEventListener('click',function(){
   reviewText.classList.toggle('reveal');
   if (readLess){

@@ -9,7 +9,7 @@ var fileContents = fs.readFile('./Import_User_Sample_en.csv','utf-8',function(er
   var rows = officeData.split('\n');
   console.log(rows[0]);
   // var userName = rows[0].split(',').indexOf('User Name');
-  var userName = 0;
+  var userName = rows[0].split(',');
   console.log("User name is column..." + userName);
   var displayName = rows[0].split(',').indexOf('Display Name');
   console.log("displayName is column..." + displayName);

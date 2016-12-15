@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Punk Beer API</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <h1>Beer</h1>
+
+    <ul class="beer-stuff">
+
+    </ul>
+
+    <script type="text/html" class="beer-template">
+
+      <li>
+        <div>
+          {{attenuation_level}}
+        </div>
+        <ol>
+          {{#ingredients.malt}}
+          <li>
+            {{name}}
+          </li>
+          {{/ingredients.malt}}
+        </ol>
+
+      </li>
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="mustache.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

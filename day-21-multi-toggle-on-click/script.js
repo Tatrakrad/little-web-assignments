@@ -1,4 +1,4 @@
-//multi select
+ //multi select
 
 var buttons = document.querySelector('.people');
 console.log(buttons);

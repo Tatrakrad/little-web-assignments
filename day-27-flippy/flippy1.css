@@ -1,0 +1,24 @@
+
+.contains-things div{
+  border:solid 1px black;
+  height: 100px;
+  width: 100px;
+  display: none;
+}
+
+.thing-1{
+  background-color: yellow;
+}
+
+.thing-2{
+  background-color: gainsboro;
+}
+.thing-3{
+  background-color: plum;
+}
+.thing-4{
+  background-color: steelblue;
+}
+.contains-things .showing{
+  display: block;
+}
