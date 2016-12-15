@@ -19,8 +19,8 @@
   console.log(paraWordsArr);
 
   function timeToRead(wordCount,wpm){
-
-    return Math.ceil(totalWordCount/wpm);
+    estimate = Math.ceil(wordCount/wpm);
+    return estimate;
   }
 
   totalWordCount = countParagraphWords(paraWordsArr);
