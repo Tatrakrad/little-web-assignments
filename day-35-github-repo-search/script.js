@@ -8,6 +8,8 @@
 
     //select outputs
     var resultsDiv = $( '.results' );
+    var usersList = $( ".users-list" );
+    var githubUsersTemplate = $( ".github-users-template" );
 
     //input events
     searchButton.click(function(evt){
@@ -38,6 +40,8 @@
     function searchGithubUsers(username){
 
       console.log(username);
+      console.log("clearing output");
+      usersList.html("");
 
       var promise = $.ajax({
         type: 'GET',
@@ -52,21 +56,47 @@
         //test
         // resultsDiv.append(JSON.stringify(data));
 
-        //select template and add data
-        var usersList = $( ".users-list" );
-        var githubUsersTemplate = $( ".github-users-template" );
-        usersList.html("");
-        var templateContent = githubUsersTemplate.html();
 
         for (var i=0; i<data.items.length;i++){
           var user = data.items[i];
-          var output = Mustache.render(templateContent, user);
-          usersList.append(output);
+          var repos = getUserRepos(user.login);
+          console.log(repos);
+
+          renderPage(user);
         }
 
 
       });
 
+      function getUserRepos(username){
+        var output;
+        $.ajax({
+          type: 'GET',
+          url:"https://api.github.com/users/"+username+"/repos",
+          dataType:'JSON',
+          async:true,
+        })
+        .done(function(data){
+          console.log("recieved",data);
+          output = data;
+          return output;
+        })
+        .fail(function(data){
+          console.log("REPO COLLECTION FAILURE");
+          return;
+        });
+
+
+      }
+
+    }
+
+    function renderPage(user,repos){
+      //select template and add data
+      var templateContent = githubUsersTemplate.html();
+
+      var outputUser = Mustache.render(templateContent, user);
+      usersList.append(outputUser);
     }
 
 }());
