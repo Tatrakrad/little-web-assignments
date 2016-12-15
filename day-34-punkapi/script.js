@@ -5,6 +5,23 @@
     console.log('clicked ',nextButton);
     page ++;
     requestData();
+
+    previousButton.classList.remove('hidden');
+  });
+
+  var previousButton = document.querySelector('.previous-button');
+  previousButton.addEventListener('click',function(){
+    console.log('clicked ',previousButton);
+
+    page --;
+
+    if (page === 1){
+      //you could just return
+      //or hide previous button
+      previousButton.classList.add('hidden');
+    }
+
+    requestData();
   });
 
   //base 64 encoding/decoding for string function  (conversion for ASCII to binary for network friendly traffic);
@@ -26,7 +43,7 @@
     });
 
     promise.done(function(data){
-      console.log(data);
+      // console.log(data);
       // document.pre(JSON.stringify(data));
 
       var beerStuffList = document.querySelector('.beer-stuff');
