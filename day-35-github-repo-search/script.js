@@ -59,43 +59,46 @@
 
         for (var i=0; i<data.items.length;i++){
           var user = data.items[i];
-          var repos = getUserRepos(user.login);
-          console.log(repos);
-
-          renderPage(user);
+          getUserRepos(user);
         }
 
 
       });
 
-      function getUserRepos(username){
-        var output;
-        $.ajax({
-          type: 'GET',
-          url:"https://api.github.com/users/"+username+"/repos",
-          dataType:'JSON',
-          async:true,
-        })
-        .done(function(data){
-          console.log("recieved",data);
-          output = data;
-          return output;
-        })
-        .fail(function(data){
-          console.log("REPO COLLECTION FAILURE");
-          return;
-        });
+      promise.fail(function(){
+        console.log("Nobody on GITHUB today");
+      });
 
+    }
+    function getUserRepos(username){
+      var output;
+      $.ajax({
+        type: 'GET',
+        url:"https://api.github.com/users/"+username.login+"/repos",
+        dataType:'JSON',
+        async:true,
+      })
+      .done(function(data){
+        console.log("recieved",data);
+        output = data;
+        renderPage(username,output);
+      })
+      .fail(function(){
+        console.log("REPO COLLECTION FAILURE");
+        return;
+      });
 
-      }
 
     }
 
     function renderPage(user,repos){
+      console.log(repos);
+
       //select template and add data
       var templateContent = githubUsersTemplate.html();
 
-      var outputUser = Mustache.render(templateContent, user);
+      var outputUser = Mustache.render(templateContent,user);
+      var outputRepos = Mustache.render(templateContent,repos);
       usersList.append(outputUser);
     }
 

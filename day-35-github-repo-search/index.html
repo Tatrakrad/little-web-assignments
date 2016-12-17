@@ -33,7 +33,11 @@
               Name: {{login}}
             </div>
             <ul>
-
+              {{#repos}}
+              <li>
+                {{repos.name}}
+              </li>
+              {{/repos}}
             </ul>
 
           </li>
