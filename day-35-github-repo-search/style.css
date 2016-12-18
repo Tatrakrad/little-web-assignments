@@ -49,3 +49,23 @@ table {
 #main {
   font-family: "Ubuntu", "Helvetica", "Tahoma", "Arial", sans-serif;
   max-width: 1200px; }
+
+ul {
+  margin: 0 auto;
+  padding: 1em;
+  border: 2px solid black; }
+
+li {
+  margin: 1em auto;
+  padding: 1em;
+  border: 1px solid gray;
+  background: darkslategray; }
+
+.repo-listing {
+  font-size: 1.33em;
+  color: salmon; }
+
+.repo-owner {
+  font-style: italic;
+  color: gainsboro;
+  font-size: 0.8em; }

@@ -15,30 +15,36 @@
       <h1>day-35-github-repo-search</h1>
 
       <div class="search-box">
-        <input class = "name-input" />
+        <input class = "repo-input" />
         <!-- remember to select and access with variable.value -->
         <button class ="search-button"type="button" name="button">SEARCH</button>
       </div>
 
       <div class="results">
 
-        <ol class="users-list">
+        <ol class="repos-list">
 
         </ol>
 
-        <script type="text/html" class="github-users-template">
+        <script type="text/html" class="github-repos-template">
 
           <li>
+
             <div>
-              Name: {{login}}
+
+              <ul>
+                {{#items}}
+                <li class='repo-listing'>
+                  {{name}}
+                  <div class='repo-owner'>
+                  By:  {{owner.login}}
+                  </div>
+                </li>
+
+                {{/items}}
+              </ul>
+
             </div>
-            <ul>
-              {{#repos}}
-              <li>
-                {{repos.name}}
-              </li>
-              {{/repos}}
-            </ul>
 
           </li>
 

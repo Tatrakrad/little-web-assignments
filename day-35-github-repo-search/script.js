@@ -2,32 +2,32 @@
 
 
     //select inputs
-    var searchForm = $( '.name-input' );
-    var searchUser = $( '.name-input' ).val();
+    var searchForm = $( '.repo-input' );
+    var searchRepos = $( '.repo-input' ).val();
     var searchButton = $('.search-button');
 
     //select outputs
     var resultsDiv = $( '.results' );
-    var usersList = $( ".users-list" );
-    var githubUsersTemplate = $( ".github-users-template" );
+    var reposList = $( ".repos-list" );
+    var githubReposTemplate = $( ".github-repos-template" );
 
     //input events
     searchButton.click(function(evt){
 
-      searchUser = $( '.name-input' ).val();
+      searchRepos = $( '.repo-input' ).val();
       console.log(evt,evt.target);
       evt.preventDefault();
-      console.log(searchUser);
-      if(searchUser.length > 0){
-        searchGithubUsers(searchUser);
+      console.log(searchRepos);
+      if(searchRepos.length > 0){
+        searchGithubRepos(searchRepos);
       }
 
     });
 
     searchForm.keyup(function(evt){
-      searchUser = $( '.name-input' ).val();
-      if (evt.which === 13 && searchUser.length > 0){
-        searchGithubUsers(searchUser);
+      searchRepos = $( '.repo-input' ).val();
+      if (evt.which === 13 && searchRepos.length > 0){
+        searchGithubRepos(searchRepos);
       }
     });
 
@@ -36,17 +36,18 @@
     //api Call
     //api.github.com/users/
     //api.github.com/search/users
+    //api.github.com/search/repos
 
-    function searchGithubUsers(username){
+    function searchGithubRepos(reponame){
 
-      console.log(username);
+      console.log(reponame);
       console.log("clearing output");
-      usersList.html("");
+      reposList.html("");
 
       var promise = $.ajax({
         type: 'GET',
-        url: "https://api.github.com/search/users",
-        data:{q:username},
+        url: "https://api.github.com/search/repositories",
+        data:{q:reponame},
         dataType: 'JSON',
         async:true,
       });
@@ -56,50 +57,24 @@
         //test
         // resultsDiv.append(JSON.stringify(data));
 
-
-        for (var i=0; i<data.items.length;i++){
-          var user = data.items[i];
-          getUserRepos(user);
-        }
-
+        renderPage(data);
 
       });
 
       promise.fail(function(){
-        console.log("Nobody on GITHUB today");
+        console.log("Nothing on GITHUB today");
       });
 
     }
-    function getUserRepos(username){
-      var output;
-      $.ajax({
-        type: 'GET',
-        url:"https://api.github.com/users/"+username.login+"/repos",
-        dataType:'JSON',
-        async:true,
-      })
-      .done(function(data){
-        console.log("recieved",data);
-        output = data;
-        renderPage(username,output);
-      })
-      .fail(function(){
-        console.log("REPO COLLECTION FAILURE");
-        return;
-      });
 
 
-    }
-
-    function renderPage(user,repos){
-      console.log(repos);
+    function renderPage(content){
+      console.log(content);
 
       //select template and add data
-      var templateContent = githubUsersTemplate.html();
-
-      var outputUser = Mustache.render(templateContent,user);
-      var outputRepos = Mustache.render(templateContent,repos);
-      usersList.append(outputUser);
+      var templateContent = githubReposTemplate.html();
+      var outputRepos = Mustache.render(templateContent,content);
+      reposList.append(outputRepos);
     }
 
 }());
