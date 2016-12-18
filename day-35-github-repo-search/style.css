@@ -48,24 +48,50 @@ table {
 
 #main {
   font-family: "Ubuntu", "Helvetica", "Tahoma", "Arial", sans-serif;
-  max-width: 1200px; }
+  max-width: 1200px;
+  min-height: 960px;
+  background: lightsteelblue;
+  margin: 0 auto; }
 
 ul {
   margin: 0 auto;
-  padding: 1em;
+  padding: 0.255em;
   border: 2px solid black; }
 
 li {
   margin: 1em auto;
-  padding: 1em;
+  padding: 0.25em;
   border: 1px solid gray;
   background: darkslategray; }
 
+h1 {
+  font-size: 2.5em; }
+
+.search-box {
+  margin: 0 auto;
+  width: 66.61%;
+  text-align: center; }
+
+.results {
+  width: 66.61%;
+  margin: 0 auto; }
+
 .repo-listing {
-  font-size: 1.33em;
+  font-size: 1.225em;
   color: salmon; }
 
 .repo-owner {
   font-style: italic;
   color: gainsboro;
   font-size: 0.8em; }
+
+.pages {
+  text-align: center;
+  margin: .5em auto;
+  border: 1px solid black; }
+  .pages * {
+    margin: 10px auto;
+    padding: 4px 0;
+    border: none;
+    display: inline-block;
+    width: 33%; }
