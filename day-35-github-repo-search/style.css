@@ -73,7 +73,7 @@ h1 {
   text-align: center; }
 
 .results {
-  width: 66.61%;
+  max-width: 66.61%;
   margin: 0 auto; }
 
 .repo-listing {
@@ -88,10 +88,11 @@ h1 {
 .pages {
   text-align: center;
   margin: .5em auto;
-  border: 1px solid black; }
+  border: 1px solid black;
+  max-width: 640px; }
   .pages * {
-    margin: 10px auto;
+    margin: 10px 0;
     padding: 4px 0;
     border: none;
     display: inline-block;
-    width: 33%; }
+    width: 30%; }

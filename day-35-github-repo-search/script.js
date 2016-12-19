@@ -22,9 +22,10 @@
     searchButton.click(function(evt){
 
       searchRepos = $( '.repo-input' ).val();
-      console.log(evt,evt.target);
+      // console.log(evt,evt.target);
       evt.preventDefault();
-      console.log(searchRepos);
+      // console.log(searchRepos);
+      pageNum = 1;
       if(searchRepos.length > 0){
         searchGithubRepos(searchRepos,pageNum);
       }
@@ -33,6 +34,7 @@
 
     searchForm.keyup(function(evt){
       searchRepos = $( '.repo-input' ).val();
+      pageNum = 1;
       if (evt.which === 13 && searchRepos.length > 0){
         searchGithubRepos(searchRepos,pageNum);
       }
