@@ -74,9 +74,18 @@ h1 {
   display: inline-block; }
 
 .search-box {
-  margin: 0 auto;
   width: 66.61%;
-  text-align: center; }
+  height: 2em;
+  text-align: left;
+  transition: all .25s ease;
+  font-size: 1.2em; }
+  .search-box input {
+    display: inline-block;
+    height: 20px;
+    width: 66.61%;
+    margin: 1em 0 1em 2em; }
+  .search-box button {
+    vertical-align: middle; }
 
 .results {
   max-width: 66.61%;
@@ -109,12 +118,20 @@ h1 {
     display: inline-block;
     width: 30%; }
   .pages span {
-    background-color: salmon;
-    font-weight: bold; }
+    font-weight: bold;
+    border: 1px solid gray; }
+  .pages .next, .pages .back, .pages .page-num {
+    background-color: salmon; }
+  .pages .next:hover, .pages .back:hover {
+    background-color: orange; }
+  .pages .back:active, .pages .next:active {
+    background-color: palegreen; }
+  .pages .inactive {
+    color: dimgray;
+    background-color: dimgray; }
+  .pages .inactive:hover, .pages .inactive:active {
+    color: dimgray;
+    background-color: dimgray; }
 
 .hidden {
   display: none; }
-
-.inactive {
-  color: dimgray;
-  background-color: dimgray; }

@@ -36,9 +36,20 @@ h1{
 }
 
 .search-box{
-  margin: 0 auto;
   width: $twothirds;
-  text-align: center;
+  height: 2em;
+  text-align: left;
+  transition: all .25s ease;
+  font-size:1.2em;
+  input{
+    display: inline-block;
+    height: 20px;
+    width:$twothirds;
+    margin: 1em 0 1em 2em;
+  }
+  button{
+    vertical-align: middle;
+  }
 }
 
 .results{
@@ -78,15 +89,28 @@ h1{
     width:30%;
   }
   span{
-    background-color: salmon;
     font-weight: bold;
+    border:$inner
+  }
+  .next,.back,.page-num{
+    background-color: salmon;
+  }
+  .next:hover,.back:hover{
+    background-color: orange;
+  }
+  .back:active,.next:active{
+    background-color:palegreen;
+  }
+  .inactive{
+    color:dimgray;
+    background-color:dimgray;
+  }
+  .inactive:hover,.inactive:active{
+    color: dimgray;
+    background-color: dimgray;
   }
 }
 
 .hidden{
   display: none;
-}
-.inactive{
-  color:dimgray;
-  background-color:dimgray;
 }
