@@ -13,10 +13,11 @@ ol{
   margin: 0 auto;
   padding:0.255em;
   border: $outer;
+
 }
 
 li{
-  margin: 1em auto;
+  margin: 0.1em auto;
   padding: 0.25em;
   border:$inner;
   background: darkslategray;
@@ -47,6 +48,8 @@ h1{
 
 .repos-list{
   transition: all .5s ease;
+  max-height: 720px;
+  overflow: scroll;
 }
 
 .repo-listing{

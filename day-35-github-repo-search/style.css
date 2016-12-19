@@ -59,7 +59,7 @@ ol {
   border: 2px solid black; }
 
 li {
-  margin: 1em auto;
+  margin: 0.1em auto;
   padding: 0.25em;
   border: 1px solid gray;
   background: darkslategray; }
@@ -83,7 +83,9 @@ h1 {
   margin: 0 auto; }
 
 .repos-list {
-  transition: all .5s ease; }
+  transition: all .5s ease;
+  max-height: 720px;
+  overflow: scroll; }
 
 .repo-listing {
   font-size: 1.225em;
