@@ -38,9 +38,9 @@
           {{#items}}
           <li>
             <div class='repo-listing'>
-              {{name}}
+              <a href="{{html_url}}">{{name}}</a>
               <div class='repo-owner'>
-              By:  {{owner.login}}
+              By: <a href="{{owner.html_url}}"> {{owner.login}}</a>
               </div>
             </div>
           </li>

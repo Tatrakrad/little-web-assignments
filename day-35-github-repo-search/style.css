@@ -87,11 +87,12 @@ h1 {
   max-height: 720px;
   overflow: scroll; }
 
-.repo-listing {
+.repo-listing a {
   font-size: 1.225em;
-  color: salmon; }
+  color: salmon;
+  text-decoration: none; }
 
-.repo-owner {
+.repo-owner, .repo-owner a {
   font-style: italic;
   color: gainsboro;
   font-size: 0.8em; }
