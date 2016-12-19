@@ -83,7 +83,7 @@
       });
 
       promise.done(function(data){
-        maxPage = data.total_count;
+        maxPage = Math.ceil(data.total_count/30);
         $('.pages').removeClass("hidden");
         //test
         console.log("recieved data, =||= ::",data);
