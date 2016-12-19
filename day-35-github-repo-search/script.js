@@ -18,6 +18,9 @@
     var reposList = $( ".repos-list" );
     var githubReposTemplate = $( ".github-repos-template" );
 
+    //the cure for a rate limit 403 error?
+    var auth = btoa("4d892accbfd6b61cb0118fe2a5ce0baeebe5dad7");
+
     //input events
     searchButton.click(function(evt){
 
@@ -80,6 +83,9 @@
         data:{q:reponame, page:pageNum},
         dataType: 'JSON',
         async:true,
+        headers: {
+         "Authorization": "Basic " + auth
+       },
       });
 
       promise.done(function(data){
