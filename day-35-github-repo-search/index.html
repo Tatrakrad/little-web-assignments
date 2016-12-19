@@ -12,7 +12,9 @@
 
     <section id="main" class="page">
 
-      <h1>day-35-github-repo-search</h1>
+      <div class="title">
+        <h1>Search Github Repositories</h1>
+      </div>
 
       <div class="search-box">
         <input class = "repo-input" />
@@ -22,34 +24,28 @@
 
       <div class="results">
 
-        <div class="pages">
+        <div class="pages hidden">
           <button class ="back" type="button" name="button">Back</button>
           <span class="page-num">1</span>
           <button class ="next" type="button" name="button">Next</button>
         </div>
 
-        <ol class="repos-list">
+        <ol class="repos-list hidden">
 
         </ol>
 
         <script type="text/html" class="github-repos-template">
-
+          {{#items}}
           <li>
-            <div>
-              <ul>
-                {{#items}}
-                <li class='repo-listing'>
-                  {{name}}
-                  <div class='repo-owner'>
-                  By:  {{owner.login}}
-                  </div>
-                </li>
-                {{/items}}
-              </ul>
-
+            <div class='repo-listing'>
+              {{name}}
+              <div class='repo-owner'>
+              By:  {{owner.login}}
+              </div>
             </div>
-
           </li>
+          {{/items}}
+
 
         </script>
 

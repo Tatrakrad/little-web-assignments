@@ -111,6 +111,10 @@
       var templateContent = githubReposTemplate.html();
       var outputRepos = Mustache.render(templateContent,content);
       reposList.append(outputRepos);
+
+      //unhide output and navigator
+      reposList.removeClass("hidden");
+      $('.pages').removeClass("hidden");
     }
 
 }());
