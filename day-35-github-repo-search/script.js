@@ -42,7 +42,7 @@
 
     nextButton.click(function(){
       // searchRepos = $( '.repo-input' ).val();
-      if (pageNum < maxPage/30){
+      if (pageNum < maxPage){
         pageNum++;
         searchGithubRepos(searchRepos,pageNum);
       }else{
@@ -102,6 +102,7 @@
 
       promise.fail(function(){
         console.log("Nothing on GITHUB today");
+        alert("GITHUB NOT DOING IT FOR YOU") ;
       });
 
     }
