@@ -1,0 +1,24 @@
+@import 'reset';
+
+body{
+  font-family:'andale mono',monospace;
+  color:red;
+}
+h1{
+  font-size: 2.5em;
+}
+
+.toggle-me{
+  padding:1em;
+  margin:0 auto;
+  border:1px solid black;
+}
+.toggle-junior{
+  padding:1em;
+  margin:1em auto;
+  border:1px solid black;
+}
+.invert{
+  background-color: black;
+  color:white;
+}
