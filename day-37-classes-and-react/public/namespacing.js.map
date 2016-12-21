@@ -1,0 +1,1 @@
+{"version":3,"sources":["../client/js/namespacing.js"],"names":["window","Blog"],"mappings":";;AAAAA,OAAOC,IAAP,GAAc,EAAd","file":"namespacing.js","sourcesContent":["window.Blog = {};\n"]}

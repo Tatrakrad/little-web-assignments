@@ -1,0 +1,22 @@
+//
+
+.blog-post{
+  color:black;
+  margin:0 auto;
+  padding:0;
+  border:none;
+  
+  img{
+    width: 200px;
+  }
+  header{
+    border:solid 1px green;
+  }
+  .post-body{
+    border:solid 1px blue;
+  }
+  .related{
+    border: solid 1px red;
+  }
+
+}
