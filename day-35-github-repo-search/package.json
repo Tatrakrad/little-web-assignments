@@ -1,0 +1,18 @@
+{
+  "name": "day-35-github-repo-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "babel-cli": "^6.18.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel client/js -d public --watch --source-maps"
+  },
+  "author": "",
+  "license": "ISC"
+}

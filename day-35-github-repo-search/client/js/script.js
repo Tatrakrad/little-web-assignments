@@ -21,8 +21,8 @@
     //the cure for a rate limit 403 error?
     var auth = btoa("4d892accbfd6b61cb0118fe2a5ce0baeebe5dad7");
 
-    //input events
-    searchButton.click(function(evt){
+
+    searchButton.click = (evt) => {
 
       searchRepos = $( '.repo-input' ).val();
       // console.log(evt,evt.target);
@@ -33,17 +33,17 @@
         searchGithubRepos(searchRepos,pageNum);
       }
 
-    });
+    };
 
-    searchForm.keyup(function(evt){
+    searchForm.keyup = (evt) => {
       searchRepos = $( '.repo-input' ).val();
       pageNum = 1;
       if (evt.which === 13 && searchRepos.length > 0){
         searchGithubRepos(searchRepos,pageNum);
       }
-    });
+    };
 
-    nextButton.click(function(){
+    nextButton.click = () => {
       // searchRepos = $( '.repo-input' ).val();
       if (pageNum < maxPage){
         pageNum++;
@@ -52,9 +52,9 @@
         return;
       }
 
-    });
+    };
 
-    backButton.click(function(evt){
+    backButton.click = () => {
       // searchRepos = $( '.repo-input' ).val();
       if (pageNum > 1){
         pageNum--;
@@ -63,7 +63,7 @@
         return;
       }
 
-    });
+    };
 
 
     //api Call
@@ -88,7 +88,7 @@
        },
       });
 
-      promise.done(function(data){
+      promise.done = (data) => {
         maxPage = Math.ceil(data.total_count/30);
         $('.pages').removeClass("hidden");
         //test
@@ -104,12 +104,12 @@
           pageDisplay.html("No Results");
         }
 
-      });
+      };
 
-      promise.fail(function(){
+      promise.fail = () =>{
         console.log("Nothing on GITHUB today");
         alert("GITHUB NOT DOING IT FOR YOU") ;
-      });
+      };
 
     }
 
