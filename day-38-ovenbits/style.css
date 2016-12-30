@@ -1,3 +1,7 @@
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i");
+
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -50,8 +54,6 @@ table {
 /*=====================================*/
 /*==============STYLE:=================*/
 /*=====================================*/
-
-
 
 body{
 	font-size:18px;
@@ -109,7 +111,7 @@ header{
 	margin:0 auto;
 	position: relative;
 	top:150px;
-
+  transition: all 135ms ease-in;
 }
 .box-content-text h1{
 	font-weight: 100;
