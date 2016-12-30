@@ -152,10 +152,10 @@ header{
 }
 
 .box:hover .box-content{
-	background-color: rgba(10,10,10,0.8);
+	background-color: rgba(10,10,10,0.65);
 }
 .box:hover .box-content-text{
-	top:4em;
+	top:5.5em;
 }
 .box:hover .box-content-button{
 	opacity: 1;
