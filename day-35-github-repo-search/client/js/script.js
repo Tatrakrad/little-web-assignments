@@ -1,4 +1,4 @@
-(function() {
+(function($) {
 
 
     //select inputs
@@ -22,8 +22,8 @@
     var auth = btoa("4d892accbfd6b61cb0118fe2a5ce0baeebe5dad7");
 
 
-    searchButton.click = (evt) => {
-
+    searchButton.on('click',function(evt)  {
+      console.log('search api called');
       searchRepos = $( '.repo-input' ).val();
       // console.log(evt,evt.target);
       evt.preventDefault();
@@ -33,9 +33,10 @@
         searchGithubRepos(searchRepos,pageNum);
       }
 
-    };
+    });
 
-    searchForm.keyup = (evt) => {
+    searchForm.onkeyup = (evt) => {
+      console.log('search api called');
       searchRepos = $( '.repo-input' ).val();
       pageNum = 1;
       if (evt.which === 13 && searchRepos.length > 0){
@@ -43,7 +44,8 @@
       }
     };
 
-    nextButton.click = () => {
+    nextButton.on('click', function(){
+      console.log('page button click');
       // searchRepos = $( '.repo-input' ).val();
       if (pageNum < maxPage){
         pageNum++;
@@ -52,9 +54,11 @@
         return;
       }
 
-    };
+    });
 
-    backButton.click = () => {
+    // backButton.click = () => {
+    backButton.on('click', function(){
+      console.log('page button click');
       // searchRepos = $( '.repo-input' ).val();
       if (pageNum > 1){
         pageNum--;
@@ -63,7 +67,7 @@
         return;
       }
 
-    };
+    });
 
 
     //api Call
@@ -86,9 +90,8 @@
         headers: {
          "Authorization": "Basic " + auth
        },
-      });
-
-      promise.done = (data) => {
+      })
+        .done(function(data){
         maxPage = Math.ceil(data.total_count/30);
         $('.pages').removeClass("hidden");
         //test
@@ -104,12 +107,11 @@
           pageDisplay.html("No Results");
         }
 
-      };
-
-      promise.fail = () =>{
+      })
+      .fail(function(){
         console.log("Nothing on GITHUB today");
         alert("GITHUB NOT DOING IT FOR YOU") ;
-      };
+      });
 
     }
 
@@ -139,4 +141,4 @@
 
     }
 
-}());
+}(jQuery));

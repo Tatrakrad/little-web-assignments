@@ -7,7 +7,9 @@
     "babel-cli": "^6.18.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0"
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-env": "^1.1.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

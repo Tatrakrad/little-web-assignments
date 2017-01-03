@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+(function ($) {
 
   //select inputs
   var searchForm = $('.repo-input');
@@ -22,8 +22,8 @@
   //the cure for a rate limit 403 error?
   var auth = btoa("4d892accbfd6b61cb0118fe2a5ce0baeebe5dad7");
 
-  searchButton.click = function (evt) {
-
+  searchButton.on('click', function (evt) {
+    console.log('search api called');
     searchRepos = $('.repo-input').val();
     // console.log(evt,evt.target);
     evt.preventDefault();
@@ -32,9 +32,10 @@
     if (searchRepos.length > 0) {
       searchGithubRepos(searchRepos, pageNum);
     }
-  };
+  });
 
-  searchForm.keyup = function (evt) {
+  searchForm.onkeyup = function (evt) {
+    console.log('search api called');
     searchRepos = $('.repo-input').val();
     pageNum = 1;
     if (evt.which === 13 && searchRepos.length > 0) {
@@ -42,7 +43,8 @@
     }
   };
 
-  nextButton.click = function () {
+  nextButton.on('click', function () {
+    console.log('page button click');
     // searchRepos = $( '.repo-input' ).val();
     if (pageNum < maxPage) {
       pageNum++;
@@ -50,9 +52,11 @@
     } else {
       return;
     }
-  };
+  });
 
-  backButton.click = function () {
+  // backButton.click = () => {
+  backButton.on('click', function () {
+    console.log('page button click');
     // searchRepos = $( '.repo-input' ).val();
     if (pageNum > 1) {
       pageNum--;
@@ -60,7 +64,7 @@
     } else {
       return;
     }
-  };
+  });
 
   //api Call
   //api.github.com/users/
@@ -82,9 +86,7 @@
       headers: {
         "Authorization": "Basic " + auth
       }
-    });
-
-    promise.done = function (data) {
+    }).done(function (data) {
       maxPage = Math.ceil(data.total_count / 30);
       $('.pages').removeClass("hidden");
       //test
@@ -99,12 +101,10 @@
         reposList.addClass('hidden');
         pageDisplay.html("No Results");
       }
-    };
-
-    promise.fail = function () {
+    }).fail(function () {
       console.log("Nothing on GITHUB today");
       alert("GITHUB NOT DOING IT FOR YOU");
-    };
+    });
   }
 
   function renderPage(content) {
@@ -130,5 +130,5 @@
     //unhide output and navigator
     reposList.removeClass("hidden");
   }
-})();
+})(jQuery);
 //# sourceMappingURL=script.js.map
