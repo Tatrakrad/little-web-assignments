@@ -1,4 +1,4 @@
-window.MyPersonApp = {};
+window.MyPersonApp = window.MyPersonApp || {};
 
 (function() {
   class PersonComponent extends React.Component {
