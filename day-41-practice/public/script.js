@@ -11,76 +11,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 (function () {
   var mountNode = document.querySelector('#react-root');
 
-  var PersonComponent = function (_React$Component) {
-    _inherits(PersonComponent, _React$Component);
-
-    function PersonComponent() {
-      _classCallCheck(this, PersonComponent);
-
-      var _this = _possibleConstructorReturn(this, (PersonComponent.__proto__ || Object.getPrototypeOf(PersonComponent)).call(this));
-
-      console.log("firing PersonComponent constructor...");
-      // should fire thrice
-      var active = false;
-      _this.state = {
-        currentClass: ''
-      };
-      return _this;
-    }
-
-    _createClass(PersonComponent, [{
-      key: 'toggle',
-      value: function toggle() {
-
-        if (this.state.currentClass !== 'on') {
-          this.setState({
-            currentClass: 'on'
-          });
-        } else {
-          this.setState({
-            currentClass: ''
-          });
-        }
-      }
-    }, {
-      key: 'render',
-      value: function render() {
-        var _this2 = this;
-
-        return React.createElement(
-          'li',
-          { className: this.state.currentClass, onClick: function onClick() {
-              _this2.toggle();
-            } },
-          React.createElement(
-            'div',
-            null,
-            'First Name: ',
-            this.props.firstName,
-            ' '
-          ),
-          React.createElement(
-            'div',
-            null,
-            'Last Name: ',
-            this.props.lastName,
-            ' '
-          ),
-          React.createElement(
-            'div',
-            null,
-            'Age: ',
-            this.props.age
-          )
-        );
-      }
-    }]);
-
-    return PersonComponent;
-  }(React.Component);
-
-  var AppComponent = function (_React$Component2) {
-    _inherits(AppComponent, _React$Component2);
+  var AppComponent = function (_React$Component) {
+    _inherits(AppComponent, _React$Component);
 
     function AppComponent() {
       _classCallCheck(this, AppComponent);
@@ -96,7 +28,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     }, {
       key: 'render',
       value: function render() {
-        var _this4 = this;
+        var _this2 = this;
 
         var dataExample = [{
           firstName: 'Jane',
@@ -158,7 +90,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           React.createElement(
             'div',
             { onClick: function onClick() {
-                _this4.divClick();
+                _this2.divClick();
               } },
             'Click me as well bro \u2665'
           ),
@@ -178,7 +110,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             '\u2193 The below maps the array of objects in the JSX \u2193'
           ),
           dataExample.map(function (person) {
-            return React.createElement(PersonComponent, { key: person.id, firstName: person.firstName, lastName: person.lastName, age: person.age });
+            return React.createElement(MyPersonApp.PersonComponent, { key: person.id, firstName: person.firstName, lastName: person.lastName, age: person.age });
           })
         );
       }

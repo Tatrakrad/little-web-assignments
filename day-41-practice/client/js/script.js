@@ -1,39 +1,7 @@
 (function() {
   var mountNode = document.querySelector('#react-root');
 
-  class PersonComponent extends React.Component {
 
-    constructor() {
-      super();
-      console.log("firing PersonComponent constructor...");
-      // should fire thrice
-      var active = false;
-      this.state = {
-        currentClass: ''
-      };
-    }
-
-    toggle() {
-
-      if (this.state.currentClass !== 'on'){
-        this.setState({
-          currentClass: 'on'
-        });
-      } else{
-        this.setState({
-          currentClass: ''
-        });
-      }
-    }
-
-    render(){
-      return (<li className={this.state.currentClass} onClick={() => { this.toggle();}}>
-        <div>First Name: {this.props.firstName} </div>
-        <div>Last Name: {this.props.lastName} </div>
-        <div>Age: {this.props.age}</div>
-      </li>)
-    }
-  }
 
   class AppComponent extends React.Component {
 
@@ -84,7 +52,7 @@
         </ul>
         <p>&uarr; The above renders a list from a variable that is mapped &uarr;</p>
         <p>&darr; The below maps the array of objects in the JSX &darr;</p>
-        {dataExample.map((person) => {return <PersonComponent key={person.id} firstName={person.firstName} lastName={person.lastName} age={person.age}/>;})}
+        {dataExample.map((person) => {return <MyPersonApp.PersonComponent key={person.id} firstName={person.firstName} lastName={person.lastName} age={person.age}/>;})}
       </div>)
     }
   }
