@@ -20,7 +20,7 @@ li{
   margin: 0.1em auto;
   padding: 0.25em;
   border:$inner;
-  background: darkslategray;
+  background: $libox;
 }
 
 h1{
@@ -39,7 +39,6 @@ h1{
   width: $twothirds;
   height: 2em;
   text-align: left;
-  transition: all .25s ease;
   font-size:1.2em;
   input{
     display: inline-block;
@@ -58,7 +57,7 @@ h1{
 }
 
 .repos-list{
-  transition: all .5s ease;
+  transition: all .75s ease;
   max-height: 720px;
   overflow: scroll;
 }
@@ -102,15 +101,17 @@ h1{
     background-color:palegreen;
   }
   .inactive{
-    color:dimgray;
-    background-color:dimgray;
+    color:$inactive;
+    background-color:$inactive;
   }
   .inactive:hover,.inactive:active{
-    color: dimgray;
-    background-color: dimgray;
+    color: $inactive;
+    background-color: $inactive;
   }
 }
 
 .hidden{
-  display: none;
+  visibility: none;
+  max-height: 0px;
+  border:none;
 }

@@ -35,14 +35,14 @@
 
     });
 
-    searchForm.onkeyup = (evt) => {
-      console.log('search api called');
+    searchForm.keyup(function(evt){
+      console.log('key pushed');
       searchRepos = $( '.repo-input' ).val();
       pageNum = 1;
       if (evt.which === 13 && searchRepos.length > 0){
         searchGithubRepos(searchRepos,pageNum);
       }
-    };
+    });
 
     nextButton.on('click', function(){
       console.log('page button click');
@@ -76,8 +76,8 @@
     //api.github.com/search/repos
 
     function searchGithubRepos(reponame,pageNum){
-
-      console.log(reponame);
+      reposList.addClass('hidden');
+      console.log('calling',reponame);
       console.log("clearing output");
       reposList.html("");
 
@@ -93,7 +93,6 @@
       })
         .done(function(data){
         maxPage = Math.ceil(data.total_count/30);
-        $('.pages').removeClass("hidden");
         //test
         console.log("recieved data, =||= ::",data);
         console.log("maxpage ",maxPage)
@@ -103,7 +102,7 @@
           pageDisplay.html(pageNum + " / " + maxPage);
           renderPage(data);
         }else{
-          reposList.addClass('hidden');
+          // reposList.addClass('hidden');
           pageDisplay.html("No Results");
         }
 
@@ -138,7 +137,7 @@
 
       //unhide output and navigator
       reposList.removeClass("hidden");
-
+      $('.pages').removeClass("hidden");
     }
 
 }(jQuery));
