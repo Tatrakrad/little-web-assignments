@@ -1,30 +1,40 @@
 'use strict';
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 (function () {
 
   //select inputs
-  var searchForm = $('.repo-input');
-  var searchRepos = $('.repo-input').val();
-  var searchButton = $('.search-button');
+  var searchForm = (0, _jquery2.default)('.repo-input');
+  var searchRepos = (0, _jquery2.default)('.repo-input').val();
+  var searchButton = (0, _jquery2.default)('.search-button');
+
+  console.log(searchForm);
+  console.log(searchRepos);
+  console.log(searchButton);
 
   //paginate
-  var backButton = $('.back');
-  var nextButton = $('.next');
-  var pageDisplay = $('.page-num');
+  var backButton = (0, _jquery2.default)('.back');
+  var nextButton = (0, _jquery2.default)('.next');
+  var pageDisplay = (0, _jquery2.default)('.page-num');
   var pageNum = 1;
   var maxPage;
 
   //select outputs
-  var resultsDiv = $('.results');
-  var reposList = $(".repos-list");
-  var githubReposTemplate = $(".github-repos-template");
+  var resultsDiv = (0, _jquery2.default)('.results');
+  var reposList = (0, _jquery2.default)(".repos-list");
+  var githubReposTemplate = (0, _jquery2.default)(".github-repos-template");
 
   //the cure for a rate limit 403 error?
   var auth = btoa("4d892accbfd6b61cb0118fe2a5ce0baeebe5dad7");
 
-  searchButton.click = function (evt) {
-
-    searchRepos = $('.repo-input').val();
+  searchButton.on('click', function (evt) {
+    console.log('u clicked');
+    searchRepos = (0, _jquery2.default)('.repo-input').val();
     // console.log(evt,evt.target);
     evt.preventDefault();
     // console.log(searchRepos);
@@ -32,10 +42,11 @@
     if (searchRepos.length > 0) {
       searchGithubRepos(searchRepos, pageNum);
     }
-  };
+  });
 
   searchForm.keyup = function (evt) {
-    searchRepos = $('.repo-input').val();
+    console.log('u hit enter?');
+    searchRepos = (0, _jquery2.default)('.repo-input').val();
     pageNum = 1;
     if (evt.which === 13 && searchRepos.length > 0) {
       searchGithubRepos(searchRepos, pageNum);
@@ -73,7 +84,7 @@
     console.log("clearing output");
     reposList.html("");
 
-    var promise = $.ajax({
+    var promise = _jquery2.default.ajax({
       type: 'GET',
       url: "https://api.github.com/search/repositories",
       data: { q: reponame, page: pageNum },
@@ -86,7 +97,7 @@
 
     promise.done = function (data) {
       maxPage = Math.ceil(data.total_count / 30);
-      $('.pages').removeClass("hidden");
+      (0, _jquery2.default)('.pages').removeClass("hidden");
       //test
       console.log("recieved data, =||= ::", data);
       console.log("maxpage ", maxPage);

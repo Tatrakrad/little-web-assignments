@@ -1,3 +1,4 @@
+
 (function() {
 
 
@@ -5,6 +6,10 @@
     var searchForm = $( '.repo-input' );
     var searchRepos = $( '.repo-input' ).val();
     var searchButton = $('.search-button');
+
+    console.log(searchForm);
+    console.log(searchRepos);
+    console.log(searchButton);
 
     //paginate
     var backButton = $('.back');
@@ -22,8 +27,8 @@
     var auth = btoa("4d892accbfd6b61cb0118fe2a5ce0baeebe5dad7");
 
 
-    searchButton.click = (evt) => {
-
+    searchButton.on('click',function(evt) {
+      console.log('u clicked');
       searchRepos = $( '.repo-input' ).val();
       // console.log(evt,evt.target);
       evt.preventDefault();
@@ -33,9 +38,10 @@
         searchGithubRepos(searchRepos,pageNum);
       }
 
-    };
+    });
 
     searchForm.keyup = (evt) => {
+      console.log('u hit enter?');
       searchRepos = $( '.repo-input' ).val();
       pageNum = 1;
       if (evt.which === 13 && searchRepos.length > 0){
