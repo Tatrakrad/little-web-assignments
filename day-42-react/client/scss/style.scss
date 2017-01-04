@@ -1,0 +1,38 @@
+@import 'reset';
+
+body{
+  font-family: 'Andale Mono',Menlo,monaco,courier,monospace;
+}
+
+.page{
+  margin: 1em auto;
+  max-width: 920px;
+  padding:20px;
+  position: relative;
+}
+.app-component{
+  border: 2px solid green;
+}
+.starwars-api-sample-content{
+  margin:5px;
+  border: 1px solid orange;
+  padding:0.5em;
+}
+.lunch-component{
+  border:1px solid red;
+  margin:5px;
+  padding:0.5em;
+
+  ol{
+    list-style: decimal;
+    padding-left: 48px;
+    text-indent: -10px;
+
+  }
+  li{
+
+  }
+}
+p {
+  color: red;
+}

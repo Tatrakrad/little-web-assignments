@@ -1,0 +1,16 @@
+@import 'reset';
+
+body{
+  font-family: 'andale mono','monaco','courier',monospace;
+}
+
+.container{
+  max-width: 960px;
+  margin: 1em auto;
+  padding:20px;
+  position: relative;
+}
+
+p {
+  color: red;
+}
