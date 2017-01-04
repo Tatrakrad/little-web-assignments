@@ -1,15 +1,48 @@
-var mountNode = document.querySelector('#react-root');
-
-class AppComponent extends React.Component {
+(function() {
 
 
-  render() {
-    return (<div className='react-content'>React works!
-      <ul>
-        
-      </ul>
-    </div>);
+  var mountNode = document.querySelector('#react-root');
+
+  class ClickToggleComponent extends React.Component{
+    constructor(){
+      super();
+      this.state = {
+        currentClass: ''
+      }
+    }
+
+    toggle(){
+      if (this.state.currentClass !== 'on'){
+        this.setState({
+          currentClass: 'on'
+        });
+      } else{
+        this.setState({
+          currentClass: ''
+        });
+      }
+    }
+
+    render(){
+      return(<div className={this.state.currentClass} onClick={() => { this.toggle();}}>
+      Click Me
+      </div>
+      )
+    }
+
   }
-}
 
-ReactDOM.render(<AppComponent />, mountNode);
+  class AppComponent extends React.Component {
+
+
+    render() {
+      return (<div className='react-content'>
+        <ClickToggleComponent />
+      </div>);
+    }
+  }
+
+  ReactDOM.render(<AppComponent />, mountNode);
+
+
+}());

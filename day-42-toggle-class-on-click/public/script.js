@@ -8,31 +8,78 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var mountNode = document.querySelector('#react-root');
+(function () {
 
-var AppComponent = function (_React$Component) {
-  _inherits(AppComponent, _React$Component);
+  var mountNode = document.querySelector('#react-root');
 
-  function AppComponent() {
-    _classCallCheck(this, AppComponent);
+  var ClickToggleComponent = function (_React$Component) {
+    _inherits(ClickToggleComponent, _React$Component);
 
-    return _possibleConstructorReturn(this, (AppComponent.__proto__ || Object.getPrototypeOf(AppComponent)).apply(this, arguments));
-  }
+    function ClickToggleComponent() {
+      _classCallCheck(this, ClickToggleComponent);
 
-  _createClass(AppComponent, [{
-    key: 'render',
-    value: function render() {
-      return React.createElement(
-        'div',
-        { className: 'react-content' },
-        'React works!',
-        React.createElement('ul', null)
-      );
+      var _this = _possibleConstructorReturn(this, (ClickToggleComponent.__proto__ || Object.getPrototypeOf(ClickToggleComponent)).call(this));
+
+      _this.state = {
+        currentClass: ''
+      };
+      return _this;
     }
-  }]);
 
-  return AppComponent;
-}(React.Component);
+    _createClass(ClickToggleComponent, [{
+      key: 'toggle',
+      value: function toggle() {
+        if (this.state.currentClass !== 'on') {
+          this.setState({
+            currentClass: 'on'
+          });
+        } else {
+          this.setState({
+            currentClass: ''
+          });
+        }
+      }
+    }, {
+      key: 'render',
+      value: function render() {
+        var _this2 = this;
 
-ReactDOM.render(React.createElement(AppComponent, null), mountNode);
+        return React.createElement(
+          'div',
+          { className: this.state.currentClass, onClick: function onClick() {
+              _this2.toggle();
+            } },
+          'Click Me'
+        );
+      }
+    }]);
+
+    return ClickToggleComponent;
+  }(React.Component);
+
+  var AppComponent = function (_React$Component2) {
+    _inherits(AppComponent, _React$Component2);
+
+    function AppComponent() {
+      _classCallCheck(this, AppComponent);
+
+      return _possibleConstructorReturn(this, (AppComponent.__proto__ || Object.getPrototypeOf(AppComponent)).apply(this, arguments));
+    }
+
+    _createClass(AppComponent, [{
+      key: 'render',
+      value: function render() {
+        return React.createElement(
+          'div',
+          { className: 'react-content' },
+          React.createElement(ClickToggleComponent, null)
+        );
+      }
+    }]);
+
+    return AppComponent;
+  }(React.Component);
+
+  ReactDOM.render(React.createElement(AppComponent, null), mountNode);
+})();
 //# sourceMappingURL=script.js.map

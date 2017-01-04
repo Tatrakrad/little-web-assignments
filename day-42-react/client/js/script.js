@@ -17,7 +17,7 @@ class StarwarsApiSampleComponent extends React.Component {
 
     $.ajax({
       url: 'http://swapi.co/api/starships',
-      data: {page:1}
+      data: {page:2}
     })
     .done((data) => {
       console.log('Now, I have Data Now.',data);
