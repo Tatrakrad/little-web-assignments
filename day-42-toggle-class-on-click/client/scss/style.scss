@@ -25,6 +25,8 @@ body{
     padding:10px 5%;
     margin:1em auto;
     outline:1px solid red;
+    user-select:none;
+    cursor: alias;
   }
   .on{
     background-color:#FFD447;
