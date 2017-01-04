@@ -38,6 +38,9 @@
     render() {
       return (<div className='react-content'>
         <ClickToggleComponent />
+        <ClickToggleComponent />
+        <ClickToggleComponent />
+        <ClickToggleComponent />
       </div>);
     }
   }

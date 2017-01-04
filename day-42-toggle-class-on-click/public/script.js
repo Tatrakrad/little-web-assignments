@@ -72,6 +72,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         return React.createElement(
           'div',
           { className: 'react-content' },
+          React.createElement(ClickToggleComponent, null),
+          React.createElement(ClickToggleComponent, null),
+          React.createElement(ClickToggleComponent, null),
           React.createElement(ClickToggleComponent, null)
         );
       }
