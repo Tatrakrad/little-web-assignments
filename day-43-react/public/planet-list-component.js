@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -17,9 +17,9 @@ window.SW = window.SW || {};
     function PlanetDetail(props) {
       _classCallCheck(this, PlanetDetail);
 
-      props.value = props.value || "";
-
       var _this = _possibleConstructorReturn(this, (PlanetDetail.__proto__ || Object.getPrototypeOf(PlanetDetail)).call(this, props));
+      // props.value = props.value || "";
+
 
       _this.state = {
         isSelected: false
@@ -28,61 +28,77 @@ window.SW = window.SW || {};
     }
 
     _createClass(PlanetDetail, [{
-      key: "toggle",
+      key: 'toggle',
       value: function toggle() {
         this.setState({
           isSelected: !this.state.isSelected
         });
       }
     }, {
-      key: "render",
+      key: 'render',
       value: function render() {
+        var _this2 = this;
+
+        var currentClass = 'planet';
+        var planetInfo;
         var selectedClass;
 
         if (this.state.isSelected) {
-          selectedClass += "on";
+          currentClass += " on";
+          console.log('current class', currentClass);
 
           planetInfo = React.createElement(
-            "div",
-            { className: "planet-info" },
+            'div',
+            { className: 'planet-info' },
             React.createElement(
-              "ul",
+              'ul',
               null,
               React.createElement(
-                "li",
+                'li',
                 null,
-                "Orbital Period ",
-                this.planetDetail.orbital_period
+                'Orbital Period ',
+                this.props.planet.orbital_period
               ),
               React.createElement(
-                "li",
+                'li',
                 null,
-                "Rotation Period ",
-                this.planetDetail.rotation_period
+                'Rotation Period ',
+                this.props.planet.rotation_period
               ),
               React.createElement(
-                "li",
+                'li',
                 null,
-                "Diameter ",
-                this.planetDetail.diameter
+                'Diameter ',
+                this.props.planet.diameter
               ),
               React.createElement(
-                "li",
+                'li',
                 null,
-                "Climate ",
-                this.planetDetail.climate
+                'Climate ',
+                this.props.planet.climate
               ),
               React.createElement(
-                "li",
+                'li',
                 null,
-                "Gravity ",
-                this.planetDetail.gravity
+                'Gravity ',
+                this.props.planet.gravity
               )
             )
           );
         }
 
-        return planetInfo;
+        return React.createElement(
+          'li',
+          { className: currentClass, onClick: function onClick() {
+              _this2.toggle();
+            } },
+          React.createElement(
+            'h3',
+            null,
+            this.props.planet.name
+          ),
+          planetInfo
+        );
       }
     }]);
 
@@ -95,19 +111,17 @@ window.SW = window.SW || {};
     function PlanetListComponent() {
       _classCallCheck(this, PlanetListComponent);
 
-      var _this2 = _possibleConstructorReturn(this, (PlanetListComponent.__proto__ || Object.getPrototypeOf(PlanetListComponent)).call(this));
+      return _possibleConstructorReturn(this, (PlanetListComponent.__proto__ || Object.getPrototypeOf(PlanetListComponent)).call(this));
 
-      _this2.state = {
-        apiResult: {}
-      };
-
-      return _this2;
+      // this.state = {
+      //   apiResult:{ }
+      // }
     }
 
     _createClass(PlanetListComponent, [{
-      key: "loadPlanets",
+      key: 'loadPlanets',
       value: function loadPlanets() {
-        var _this3 = this;
+        var _this4 = this;
 
         console.log('load the planets');
 
@@ -116,7 +130,7 @@ window.SW = window.SW || {};
           data: { page: 1 }
         }).done(function (data) {
           console.log('Now, I have Data Now.', data);
-          _this3.setState({
+          _this4.setState({
             apiResult: data
           });
         }).fail(function () {
@@ -126,7 +140,7 @@ window.SW = window.SW || {};
       } //end of loadPlanets function
 
     }, {
-      key: "componentDidMount",
+      key: 'componentDidMount',
       value: function componentDidMount() {
 
         console.log('PlanetListComponent.componentDidMount');
@@ -134,38 +148,33 @@ window.SW = window.SW || {};
         this.loadPlanets();
       }
     }, {
-      key: "componentWillUnmount",
+      key: 'componentWillUnmount',
       value: function componentWillUnmount() {
         console.log('PlanetListComponent.componentWillUnmount');
       }
     }, {
-      key: "render",
+      key: 'render',
       value: function render() {
         console.log('render', this.state);
         var planetList;
 
-        if (this.state.apiResult.results != null) {
+        if (this.state != null) {
           planetList = React.createElement(
-            "ul",
+            'ul',
             null,
             this.state.apiResult.results.map(function (planet) {
-              return React.createElement(
-                "li",
-                { key: planet.url },
-                "It's ",
-                planet.name
-              );
+              return React.createElement(PlanetDetail, { key: planet.url, planet: planet });
             })
           );
         }
 
         return React.createElement(
-          "div",
-          { className: "planet-list" },
+          'div',
+          { className: 'planet-list' },
           React.createElement(
-            "h1",
+            'h1',
             null,
-            "Planet List"
+            'Planet List'
           ),
           planetList
         );

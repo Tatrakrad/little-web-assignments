@@ -10,13 +10,44 @@ body{
   position: relative;
 
   ul{
-    outline: 1px solid blue;
+    outline: 2px solid blue;
     padding:4px;
   }
 
+  li{
+    padding:4px;
+    outline:1px solid black;
+    margin:3px;
+  }
+
+  .planet-info{
+    ul{
+      background: black;
+      margin:1em;
+    }
+    li{
+      color:white;
+      border:1px solid yellow;
+    }
+
+  }
+  .on{
+    background-color:yellow;
+    margin: 1em;
+    padding:0.5em;
+  }
+
 }
-.on{
-  background-color:yellow;
+h1{
+  font-size:3em;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+h2{
+  font-size:2.5em;
+}
+h3{
+  font-size:2.25em;
 }
 p {
   color: red;

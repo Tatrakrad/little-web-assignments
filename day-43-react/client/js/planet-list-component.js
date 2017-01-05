@@ -25,21 +25,22 @@ window.SW = window.SW || { };
       var selectedClass;
 
       if(this.state.isSelected){
-        selectedClass += "on";
+        currentClass += " on";
+        console.log('current class',currentClass);
 
         planetInfo = <div className="planet-info">
           <ul>
-            <li>Orbital Period {this.props.planetDetail.orbital_period}</li>
-            <li>Rotation Period {this.props.planetDetail.rotation_period}</li>
-            <li>Diameter {this.props.planetDetail.diameter}</li>
-            <li>Climate {this.props.planetDetail.climate}</li>
-            <li>Gravity {this.props.planetDetail.gravity}</li>
+            <li>Orbital Period {this.props.planet.orbital_period}</li>
+            <li>Rotation Period {this.props.planet.rotation_period}</li>
+            <li>Diameter {this.props.planet.diameter}</li>
+            <li>Climate {this.props.planet.climate}</li>
+            <li>Gravity {this.props.planet.gravity}</li>
           </ul>
         </div>
       }
 
-      return( <li className={currentClass} onClick={() => {this.toggle(); }}
-        {this.props.planet.name}
+      return( <li className={currentClass} onClick={() => {this.toggle(); }}>
+        <h3>{this.props.planet.name}</h3>
         {planetInfo}
       </li>);
     }
@@ -52,9 +53,9 @@ window.SW = window.SW || { };
     constructor(){
       super();
 
-      this.state = {
-        apiResult:{ }
-      }
+      // this.state = {
+      //   apiResult:{ }
+      // }
 
     }
 
@@ -98,8 +99,8 @@ window.SW = window.SW || { };
 
       if (this.state !=null){
         planetList = <ul>
-          {this.state.apiResult.results.map((planet) => {return <PlanetDetail key={planet.url}>It&apos;s {planet.name}</li>})}
-         </ul>
+          {this.state.apiResult.results.map((planet) => {return <PlanetDetail key={planet.url} planet={planet} />})}
+        </ul>
       }
 
     return (<div className="planet-list">
