@@ -1,0 +1,23 @@
+@import 'reset';
+
+body{
+  font-family: 'Andale Mono','Menlo','Monaco','Courier',monospace;
+}
+
+.planet-list{
+  max-width: 960px;
+  margin:0 auto;
+  position: relative;
+
+  ul{
+    outline: 1px solid blue;
+    padding:4px;
+  }
+
+}
+.on{
+  background-color:yellow;
+}
+p {
+  color: red;
+}
