@@ -1,0 +1,117 @@
+@import "reset";
+@import "variables";
+
+#main{
+  font-family:$mainfont;
+  max-width: 1200px;
+  min-height:960px;
+  background: lightsteelblue;
+  margin: 0 auto;
+}
+
+ol{
+  margin: 0 auto;
+  padding:0.255em;
+  border: $outer;
+
+}
+
+li{
+  margin: 0.1em auto;
+  padding: 0.25em;
+  border:$inner;
+  background: $libox;
+}
+
+h1{
+  font-size: 2.5em;
+}
+
+.title{
+  text-align: center;
+  margin: 0 auto;
+  padding:1.2em;
+  display: inline-block;
+
+}
+
+.search-box{
+  width: $twothirds;
+  height: 2em;
+  text-align: left;
+  font-size:1.2em;
+  input{
+    display: inline-block;
+    height: 20px;
+    width:$twothirds;
+    margin: 1em 0 1em 2em;
+  }
+  button{
+    vertical-align: middle;
+  }
+}
+
+.results{
+  max-width:$twothirds;
+  margin: 0 auto;
+}
+
+.repos-list{
+  transition: all .75s ease;
+  max-height: 720px;
+  overflow: scroll;
+}
+
+.repo-listing a{
+  font-size: 1.225em;
+  color:salmon;
+  text-decoration: none;
+}
+
+.repo-owner, .repo-owner a{
+  font-style: italic;
+  color:gainsboro;
+  font-size: 0.95em;
+}
+//page selector shrinks when results load?
+.pages{
+  text-align: center;
+  margin:.5em auto;
+  max-width: 640px;
+  background-color: dimgray;
+
+  *{
+    margin: 10px 0;
+    padding: 4px 0;
+    border: none;
+    display: inline-block;
+    width:30%;
+  }
+  span{
+    font-weight: bold;
+    border:$inner
+  }
+  .next,.back,.page-num{
+    background-color: salmon;
+  }
+  .next:hover,.back:hover{
+    background-color: orange;
+  }
+  .back:active,.next:active{
+    background-color:palegreen;
+  }
+  .inactive{
+    color:$inactive;
+    background-color:$inactive;
+  }
+  .inactive:hover,.inactive:active{
+    color: $inactive;
+    background-color: $inactive;
+  }
+}
+
+.hidden{
+  visibility: none;
+  max-height: 0px;
+  border:none;
+}
