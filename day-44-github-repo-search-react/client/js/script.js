@@ -1,16 +1,45 @@
-var mountNode = document.querySelector('#react-root');
+(function() {
 
-class GithubRepos extends React.Component {
+  var mountNode = document.querySelector('#react-root');
 
-  render(){
-    return <div className="repos-list hidden"> Results </div>
+  class InterfaceComponent extends React.Component {
+
+    constructor(){
+      super();
+    }
+
+
+    render(){
+      return (<div>    </div>);
+    }
+
   }
-}
 
-class AppComponent extends React.Component {
-  render() {
-    return <div>React works!</div>;
+  class GithubRepos extends React.Component {
+
+    constructor(){
+      super();
+
+
+    }
+
+    searchGithubRepos(){
+
+
+    }
+
+    render(){
+      return <div className="repos-list hidden"> Results </div>
+    }
   }
-}
 
-ReactDOM.render(<AppComponent />, mountNode);
+  class AppComponent extends React.Component {
+    render() {
+      return <div>React works!</div>;
+    }
+  }
+
+  ReactDOM.render(<AppComponent />, mountNode);
+
+
+}());
