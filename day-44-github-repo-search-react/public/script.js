@@ -22,12 +22,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     function GithubRepos() {
       _classCallCheck(this, GithubRepos);
 
-      var _this = _possibleConstructorReturn(this, (GithubRepos.__proto__ || Object.getPrototypeOf(GithubRepos)).call(this));
-
-      _this.state = {
-        page: 1
-      };
-      return _this;
+      return _possibleConstructorReturn(this, (GithubRepos.__proto__ || Object.getPrototypeOf(GithubRepos)).call(this));
     }
 
     _createClass(GithubRepos, [{
@@ -44,9 +39,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           // console.log(evt.target.value);
           // GithubRepos.searchRepos(evt.target.value);
           this.setState({
-            query: evt.target.value
+            query: evt.target.value,
+            page: 1
           });
-          this.searchRepos(evt.target.value);
+          this.searchRepos(evt.target.value, 1);
         }
       }
     }, {
@@ -69,7 +65,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
       value: function backButton() {
         var newPage = this.state.page;
 
-        if (newPage > 0) {
+        if (newPage > 1) {
 
           newPage--;
 

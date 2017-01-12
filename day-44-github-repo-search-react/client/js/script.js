@@ -11,10 +11,6 @@
 
     constructor(){
       super();
-
-      this.state=({
-        page:1
-      })
     }
 
     componentWillMount(){
@@ -30,9 +26,10 @@
         // console.log(evt.target.value);
         // GithubRepos.searchRepos(evt.target.value);
         this.setState({
-          query:evt.target.value
+          query:evt.target.value,
+          page:1
         })
-        this.searchRepos(evt.target.value);
+        this.searchRepos(evt.target.value,1);
       }
     }
 
@@ -56,7 +53,7 @@
     backButton(){
       var newPage = this.state.page;
 
-      if (newPage > 0) {
+      if (newPage > 1) {
 
         newPage --;
 
