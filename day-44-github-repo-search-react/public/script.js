@@ -16,18 +16,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
   var mountNode = document.querySelector('#react-root');
   var auth = btoa("4d892accbfd6b61cb0118fe2a5ce0baeebe5dad7");
 
-  //placeholder
+  var GithubRepos = function (_React$Component) {
+    _inherits(GithubRepos, _React$Component);
 
-  var SearchBar = function (_React$Component) {
-    _inherits(SearchBar, _React$Component);
+    function GithubRepos() {
+      _classCallCheck(this, GithubRepos);
 
-    function SearchBar() {
-      _classCallCheck(this, SearchBar);
+      var _this = _possibleConstructorReturn(this, (GithubRepos.__proto__ || Object.getPrototypeOf(GithubRepos)).call(this));
 
-      return _possibleConstructorReturn(this, (SearchBar.__proto__ || Object.getPrototypeOf(SearchBar)).call(this));
+      _this.state = {
+        page: 1
+      };
+      return _this;
     }
 
-    _createClass(SearchBar, [{
+    _createClass(GithubRepos, [{
+      key: 'componentWillMount',
+      value: function componentWillMount() {}
+    }, {
+      key: 'componentDidMount',
+      value: function componentDidMount() {}
+    }, {
       key: 'keyUpHappened',
       value: function keyUpHappened(evt) {
         console.log(evt.keyCode);
@@ -35,106 +44,46 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           // console.log(evt.target.value);
           // GithubRepos.searchRepos(evt.target.value);
           this.setState({
-            request: evt.target.value
+            query: evt.target.value
           });
+          this.searchRepos(evt.target.value);
         }
-      }
-    }, {
-      key: 'render',
-      value: function render() {
-        var _this2 = this;
-
-        var doSearch;
-
-        if (this.state !== null) {
-          doSearch = React.createElement(GithubRepos, { query: this.state.request, page: 1 });
-          console.log('maxPage');
-        }
-
-        return React.createElement(
-          'div',
-          null,
-          React.createElement(
-            'div',
-            { className: 'search-box' },
-            React.createElement('input', { className: 'repo-input',
-              placeholder: 'Type a repo name and hit Enter',
-              onKeyUp: function onKeyUp(evt) {
-                _this2.keyUpHappened(evt);
-              } })
-          ),
-          doSearch
-        );
-      }
-    }]);
-
-    return SearchBar;
-  }(React.Component);
-
-  var GithubRepos = function (_React$Component2) {
-    _inherits(GithubRepos, _React$Component2);
-
-    function GithubRepos() {
-      _classCallCheck(this, GithubRepos);
-
-      return _possibleConstructorReturn(this, (GithubRepos.__proto__ || Object.getPrototypeOf(GithubRepos)).call(this));
-    }
-
-    _createClass(GithubRepos, [{
-      key: 'componentWillMount',
-      value: function componentWillMount() {
-        console.log('component mounted', this.props);
-        // this.searchRepos(this.state.query);
-        // this.setState({
-        //   query:this.props.query,
-        //   pageNum:this.props.page
-        // })
-      }
-    }, {
-      key: 'componentDidMount',
-      value: function componentDidMount() {
-
-        this.searchRepos(this.props.query, this.props.page);
-        this.setState({
-          query: this.props.query,
-          pageNum: this.props.page
-        });
       }
     }, {
       key: 'nextButton',
       value: function nextButton() {
-        var page = this.state.pageNum;
+        var newPage = this.state.page;
 
-        if (page <= this.state.maxPage) {
-          page++;
+        if (newPage < this.state.maxPage) {
+          newPage++;
 
           this.setState({
-            pageNum: page
+            page: newPage
           });
 
-          this.searchRepos(this.state.query, this.state.pageNum);
+          this.searchRepos(this.state.query, this.state.page);
         }
       }
     }, {
       key: 'backButton',
       value: function backButton() {
-        var page = this.state.pageNum;
+        var newPage = this.state.page;
 
-        if (page > 0) {
+        if (newPage > 0) {
 
-          page--;
+          newPage--;
 
           this.setState({
-            pageNum: page
+            page: newPage
           });
 
-          this.searchRepos(this.state.query, this.state.pageNum);
+          this.searchRepos(this.state.query, this.state.page);
         }
       }
     }, {
       key: 'searchRepos',
       value: function searchRepos(query, page) {
-        var _this4 = this;
+        var _this2 = this;
 
         $.ajax({
           type: 'GET',
@@ -149,9 +98,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           //test
           console.log("recieved data ==>", repoData);
 
-          _this4.setState({
+          _this2.setState({
             apiResult: repoData,
-            maxPage: Math.ceil(repoData.total_count / 30) + 1
+            maxPage: Math.ceil(repoData.total_count / 30)
           });
         }).fail(function () {
           console.log("API Call Failure");
@@ -161,14 +110,29 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     }, {
       key: 'render',
       value: function render() {
-        var _this5 = this;
+        var _this3 = this;
 
         // console.log("render sees page as",this.state.pageNum);
         // console.log("render bar sees max-page as",this.state.maxPage);
+        var searchBox;
         var searchResults;
         var pageButtons;
 
-        if (this.state !== null && this.state.apiResult !== undefined && this.state.pageNum !== undefined) {
+        searchBox = React.createElement(
+          'div',
+          null,
+          React.createElement(
+            'div',
+            { className: 'search-box' },
+            React.createElement('input', { className: 'repo-input',
+              placeholder: 'Type a repo name and hit Enter',
+              onKeyUp: function onKeyUp(evt) {
+                _this3.keyUpHappened(evt);
+              } })
+          )
+        );
+
+        if (this.state !== null && this.state.apiResult !== undefined && this.state.page !== undefined) {
           searchResults = React.createElement(
             'ul',
             { className: 'results' },
@@ -199,7 +163,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           );
 
           if (this.state.maxPage > 1) {
-            console.log("button bar sees page as", this.state.pageNum);
+            console.log("button bar sees page as", this.state.page);
             console.log("button bar sees max-page as", this.state.maxPage);
             pageButtons = React.createElement(
               'div',
@@ -208,14 +172,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 'span',
                 { className: 'back',
                   onClick: function onClick() {
-                    _this5.backButton();
+                    _this3.backButton();
                   } },
                 'Back'
               ),
               React.createElement(
                 'span',
                 { className: 'page-num' },
-                this.state.pageNum,
+                this.state.page,
                 '/',
                 this.state.maxPage
               ),
@@ -223,7 +187,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 'span',
                 { className: 'next',
                   onClick: function onClick() {
-                    _this5.nextButton();
+                    _this3.nextButton();
                   } },
                 'Next'
               )
@@ -234,6 +198,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         return React.createElement(
           'div',
           null,
+          searchBox,
           pageButtons,
           React.createElement(
             'div',
@@ -249,8 +214,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     return GithubRepos;
   }(React.Component);
 
-  var AppComponent = function (_React$Component3) {
-    _inherits(AppComponent, _React$Component3);
+  var AppComponent = function (_React$Component2) {
+    _inherits(AppComponent, _React$Component2);
 
     function AppComponent() {
       _classCallCheck(this, AppComponent);
@@ -265,7 +230,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           'div',
           null,
           'React works!',
-          React.createElement(SearchBar, null)
+          React.createElement(GithubRepos, null)
         );
       }
     }]);

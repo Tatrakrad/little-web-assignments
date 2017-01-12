@@ -6,12 +6,21 @@
   var mountNode = document.querySelector('#react-root');
   var auth = btoa("4d892accbfd6b61cb0118fe2a5ce0baeebe5dad7");
 
-  //placeholder
 
-  class SearchBar extends React.Component {
+  class GithubRepos extends React.Component {
 
     constructor(){
       super();
+
+      this.state=({
+        page:1
+      })
+    }
+
+    componentWillMount(){
+
+    }
+    componentDidMount(){
 
     }
 
@@ -21,88 +30,41 @@
         // console.log(evt.target.value);
         // GithubRepos.searchRepos(evt.target.value);
         this.setState({
-          request:evt.target.value
+          query:evt.target.value
         })
+        this.searchRepos(evt.target.value);
       }
-    }
-
-
-
-    render(){
-      var doSearch;
-
-      if (this.state !== null){
-        doSearch = <GithubRepos query={this.state.request} page={1}/>;
-        console.log('maxPage')
-
-      }
-
-      return (<div>
-        <div className="search-box">
-          <input className = "repo-input"
-          placeholder="Type a repo name and hit Enter"
-          onKeyUp={(evt) => {this.keyUpHappened(evt)}}/>
-        </div>
-          {doSearch}
-      </div>);
-    }
-
-  }
-
-
-  class GithubRepos extends React.Component {
-
-    constructor(){
-      super();
-    }
-
-    componentWillMount(){
-      console.log('component mounted',this.props);
-      // this.searchRepos(this.state.query);
-      // this.setState({
-      //   query:this.props.query,
-      //   pageNum:this.props.page
-      // })
-
-    }
-    componentDidMount(){
-
-      this.searchRepos(this.props.query,this.props.page);
-      this.setState({
-        query:this.props.query,
-        pageNum:this.props.page
-      })
     }
 
     nextButton(){
-      var page = this.state.pageNum;
+      var newPage = this.state.page;
 
 
-      if (page <= this.state.maxPage){
-        page ++;
+      if (newPage < this.state.maxPage){
+        newPage ++;
 
         this.setState({
-          pageNum:page
+          page:newPage
         })
 
-        this.searchRepos(this.state.query,this.state.pageNum);
+        this.searchRepos(this.state.query,this.state.page);
 
       }
 
     }
 
     backButton(){
-      var page = this.state.pageNum;
+      var newPage = this.state.page;
 
-      if (page > 0) {
+      if (newPage > 0) {
 
-        page --;
+        newPage --;
 
         this.setState({
-          pageNum:page
+          page:newPage
         })
 
-        this.searchRepos(this.state.query,this.state.pageNum);
+        this.searchRepos(this.state.query,this.state.page);
 
       }
 
@@ -126,7 +88,7 @@
 
         this.setState({
           apiResult:repoData,
-          maxPage:Math.ceil(repoData.total_count/30)+1
+          maxPage:Math.ceil(repoData.total_count/30)
         })
 
       })
@@ -140,10 +102,20 @@
     render(){
       // console.log("render sees page as",this.state.pageNum);
       // console.log("render bar sees max-page as",this.state.maxPage);
+      var searchBox;
       var searchResults;
       var pageButtons;
 
-      if (this.state !== null && this.state.apiResult !== undefined && this.state.pageNum !== undefined){
+      searchBox = <div>
+        <div className="search-box">
+          <input className = "repo-input"
+          placeholder="Type a repo name and hit Enter"
+          onKeyUp={(evt) => {this.keyUpHappened(evt)}}/>
+        </div>
+
+      </div>;
+
+      if (this.state !== null && this.state.apiResult !== undefined && this.state.page !== undefined){
         searchResults =
          <ul className='results'>
           {this.state.apiResult.items.map((repo) => {return (
@@ -159,12 +131,12 @@
         </ul>;
 
         if (this.state.maxPage > 1){
-          console.log("button bar sees page as",this.state.pageNum);
+          console.log("button bar sees page as",this.state.page);
           console.log("button bar sees max-page as",this.state.maxPage);
           pageButtons =  <div className="pages">
             <span className ="back"
             onClick={()=>{this.backButton();}}>Back</span>
-            <span className="page-num">{this.state.pageNum}/{this.state.maxPage}</span>
+            <span className="page-num">{this.state.page}/{this.state.maxPage}</span>
             <span className ="next"
             onClick={()=>{this.nextButton();}}>Next</span>
           </div>
@@ -172,14 +144,14 @@
 
       }
 
-      return <div>{pageButtons}<div className="repos-list"> {searchResults}  </div></div>
+      return <div>{searchBox}{pageButtons}<div className="repos-list"> {searchResults}  </div></div>
     }
   }
 
   class AppComponent extends React.Component {
     render() {
       return (<div>React works!
-        <SearchBar />
+        <GithubRepos />
       </div>);
     }
   }
