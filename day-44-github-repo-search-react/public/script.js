@@ -111,8 +111,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         // console.log("render sees page as",this.state.pageNum);
         // console.log("render bar sees max-page as",this.state.maxPage);
         var searchBox;
-        var searchResults;
         var pageButtons;
+        var showResults;
 
         searchBox = React.createElement(
           'div',
@@ -129,33 +129,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         );
 
         if (this.state !== null && this.state.apiResult !== undefined && this.state.page !== undefined) {
-          searchResults = React.createElement(
-            'ul',
-            { className: 'results' },
-            this.state.apiResult.items.map(function (repo) {
-              return React.createElement(
-                'li',
-                { key: repo.id },
-                React.createElement(
-                  'div',
-                  { className: 'repo-listing' },
-                  React.createElement(
-                    'a',
-                    { href: repo.html_url },
-                    repo.name
-                  ),
-                  React.createElement(
-                    'div',
-                    { className: 'repo-owner' },
-                    React.createElement(
-                      'a',
-                      { href: repo.owner.html_url },
-                      repo.owner.login
-                    )
-                  )
-                )
-              );
-            })
+
+          showResults = React.createElement(
+            'div',
+            { className: 'repos-list' },
+            ' ',
+            React.createElement(Results, { returned: this.state.apiResult })
           );
 
           if (this.state.maxPage > 1) {
@@ -196,13 +175,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
           null,
           searchBox,
           pageButtons,
-          React.createElement(
-            'div',
-            { className: 'repos-list' },
-            ' ',
-            searchResults,
-            '  '
-          )
+          showResults
         );
       }
     }]);
@@ -210,8 +183,60 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     return GithubRepos;
   }(React.Component);
 
-  var AppComponent = function (_React$Component2) {
-    _inherits(AppComponent, _React$Component2);
+  var Results = function (_React$Component2) {
+    _inherits(Results, _React$Component2);
+
+    function Results() {
+      _classCallCheck(this, Results);
+
+      return _possibleConstructorReturn(this, (Results.__proto__ || Object.getPrototypeOf(Results)).call(this));
+    }
+
+    _createClass(Results, [{
+      key: 'render',
+      value: function render() {
+        var results = React.createElement(
+          'ul',
+          { className: 'results' },
+          this.props.returned.items.map(function (repo) {
+            return React.createElement(
+              'li',
+              { key: repo.id },
+              React.createElement(
+                'div',
+                { className: 'repo-listing' },
+                React.createElement(
+                  'a',
+                  { href: repo.html_url },
+                  repo.name
+                ),
+                React.createElement(
+                  'div',
+                  { className: 'repo-owner' },
+                  React.createElement(
+                    'a',
+                    { href: repo.owner.html_url },
+                    repo.owner.login
+                  )
+                )
+              )
+            );
+          })
+        );
+
+        return React.createElement(
+          'div',
+          null,
+          results
+        );
+      }
+    }]);
+
+    return Results;
+  }(React.Component);
+
+  var AppComponent = function (_React$Component3) {
+    _inherits(AppComponent, _React$Component3);
 
     function AppComponent() {
       _classCallCheck(this, AppComponent);

@@ -100,8 +100,8 @@
       // console.log("render sees page as",this.state.pageNum);
       // console.log("render bar sees max-page as",this.state.maxPage);
       var searchBox;
-      var searchResults;
       var pageButtons;
+      var showResults;
 
       searchBox = <div>
         <div className="search-box">
@@ -113,19 +113,8 @@
       </div>;
 
       if (this.state !== null && this.state.apiResult !== undefined && this.state.page !== undefined){
-        searchResults =
-         <ul className='results'>
-          {this.state.apiResult.items.map((repo) => {return (
-            <li key={repo.id}>
-              <div className = 'repo-listing'>
-                <a href={repo.html_url}>{repo.name}</a>
-                <div className='repo-owner'>
-                  <a href={repo.owner.html_url}>{repo.owner.login}</a>
-                </div>
-              </div>
-            </li>
-          )})}
-        </ul>;
+
+        showResults = <div className="repos-list"> <Results returned={this.state.apiResult}/></div>
 
         if (this.state.maxPage > 1){
           console.log("button bar sees page as",this.state.page);
@@ -141,8 +130,34 @@
 
       }
 
-      return <div>{searchBox}{pageButtons}<div className="repos-list"> {searchResults}  </div></div>
+      return <div>{searchBox}{pageButtons}{showResults}</div>
     }
+  }
+
+  class Results extends React.Component {
+
+    constructor(){
+      super();
+    }
+
+    render(){
+      var results = <ul className='results'>
+       {this.props.returned.items.map((repo) => {return (
+         <li key={repo.id}>
+           <div className = 'repo-listing'>
+             <a href={repo.html_url}>{repo.name}</a>
+             <div className='repo-owner'>
+               <a href={repo.owner.html_url}>{repo.owner.login}</a>
+             </div>
+           </div>
+         </li>
+       )})}
+     </ul>;
+
+         return (<div>{results}</div>)
+    }
+
+
   }
 
   class AppComponent extends React.Component {
